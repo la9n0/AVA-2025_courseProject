@@ -1,0 +1,4 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (BVS-2024Lib.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  pch.cpp
+  AVA-2025Lib.cpp
+  AVA-2025Lib.vcxproj -> D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\Debug\AVA-2025Lib.lib
