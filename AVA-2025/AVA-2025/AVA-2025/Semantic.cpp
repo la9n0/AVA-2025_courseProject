@@ -42,13 +42,6 @@ namespace SA {
 				i += cur - 1;
 			}
 
-			// Проверка на неизвестный оператор 'b'
-			if (lex.lextable.table[i].lexema == 'b') {
-				if (lex.idtable.table[lex.lextable.table[i - 1].idxTI].iddatatype !=
-					lex.idtable.table[lex.lextable.table[i + 1].idxTI].iddatatype) {
-					throw ERROR_THROW_IN(703, lex.lextable.table[i].sn, lex.lextable.table[i].cn);
-				}
-			}
 		}
 	}
 

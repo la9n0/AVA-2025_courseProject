@@ -573,49 +573,6 @@ namespace FST {
 			NODE()
 		);
 		// ���������� ���������
-		FST lex_more(
-			str,
-			2,
-			NODE(1, RELATION('>', 1)),
-			NODE()
-		);
-		FST lex_less(
-			str,
-			2,
-			NODE(1, RELATION('<', 1)),
-			NODE()
-		);
-		FST lex_equal(
-			str,
-			3,
-			NODE(1, RELATION('=', 1)),
-			NODE(1, RELATION('=', 2)),
-			NODE()
-		);
-		FST lex_exclamation(
-			str,
-			3,
-			NODE(1, RELATION('!', 1)),
-			NODE(1, RELATION('=', 2)),
-			NODE()
-		);
-		FST lex_lessEqual(
-			str,
-			3,
-			NODE(1, RELATION('<', 1)),
-			NODE(1, RELATION('=', 2)),
-			NODE()
-		);
-		FST lex_moreEqual(
-			str,
-			3,
-			NODE(1, RELATION('>', 1)),
-			NODE(1, RELATION('=', 2)),
-			NODE()
-		);
-
-
-
 		FST lex_for(
 			str,
 			4,
@@ -1444,9 +1401,7 @@ namespace FST {
 						if (ch == expectedSymbol) {
 							inLiteral = false;
 							word.push_back(ch);
-							
 							executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-							
 						}
 						else {
 							throw ERROR_THROW_IN(126, line, col);
@@ -1455,11 +1410,7 @@ namespace FST {
 					else {
 						inLiteral = true;
 						expectedSymbol = ch;
-
-						
 						executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-						
-
 						word.push_back(ch);
 					}
 				}
@@ -1467,48 +1418,10 @@ namespace FST {
 					if (inLiteral) {
 						word.push_back(ch);
 					}
-					else {	
-						
+					else {
 						executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-						
-
-						if (ch != ' ' && ch != '\n' && ch != '\'' || ch != '\"') {
-							if (ch == '<' || ch == '>' || ch == '!' || ch == '=') {
-								if (i == in.size - 1) {
-									word.push_back(ch);
-
-									
-									executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-								}
-								else {
-									nextSymbol = in.text[i + 1];
-									if (nextSymbol == '=') {
-										word.push_back(ch);
-										word.push_back(nextSymbol);
-
-										
-										executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-										
-										i++;
-										col++;
-									}
-									else {
-										word.push_back(ch);
-										
-										executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-										
-									}
-								}
-							}
-							else {
-								word.push_back(ch);
-								
-								executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
-							}
-						}
-						else {
-							
-						}
+						word.push_back(ch);
+						executeWordAndClear(word, str, FSTarray, line, col, lextable, idtable);
 					}
 				}
 			}

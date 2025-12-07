@@ -3,8 +3,15 @@
   "WorkspaceRootPath": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\CodeGeneration.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\CodeGeneration.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\in.txt.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BEA6AA56-7490-47D2-BFD3-CF481746C2F0}|AVA-2025Lib\\AVA-2025Lib.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025Lib\\AVA-2025Lib.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -17,10 +24,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C178DD7E-D95F-4DE8-B9FC-A285AE80D41F}|AVA-2025Asm\\AVA-2025Asm.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025Asm\\AVA-2025.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{C178DD7E-D95F-4DE8-B9FC-A285AE80D41F}|AVA-2025Asm\\AVA-2025Asm.vcxproj|solutionrelative:AVA-2025Asm\\AVA-2025.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A13889-C7B6-4FBB-98F6-A39B1824D866}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -43,6 +46,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "in.txt.asm",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\in.txt.asm",
+              "RelativeDocumentMoniker": "..\\in.txt.asm",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\in.txt.asm",
+              "RelativeToolTip": "..\\in.txt.asm",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-07T13:13:16.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "pch.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025Lib\\pch.cpp",
               "RelativeDocumentMoniker": "AVA-2025Lib\\pch.cpp",
@@ -50,12 +66,11 @@
               "RelativeToolTip": "AVA-2025Lib\\pch.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-06T20:56:40.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T20:56:40.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AVA-2025Lib.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025Lib\\AVA-2025Lib.cpp",
               "RelativeDocumentMoniker": "AVA-2025Lib\\AVA-2025Lib.cpp",
@@ -63,12 +78,11 @@
               "RelativeToolTip": "AVA-2025Lib\\AVA-2025Lib.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-06T20:47:56.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T20:47:56.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AVA-2025.asm",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025Asm\\AVA-2025.asm",
               "RelativeDocumentMoniker": "AVA-2025Asm\\AVA-2025.asm",
@@ -76,38 +90,37 @@
               "RelativeToolTip": "AVA-2025Asm\\AVA-2025.asm",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-06T20:47:46.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T20:47:46.024Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "FST.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp",
               "RelativeDocumentMoniker": "AVA-2025\\FST.cpp",
               "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp",
               "RelativeToolTip": "AVA-2025\\FST.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAALgAAAAAAAAAAAAlwMMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-06T17:11:44.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CodeGeneration.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\CodeGeneration.cpp",
               "RelativeDocumentMoniker": "AVA-2025\\CodeGeneration.cpp",
               "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\CodeGeneration.cpp",
               "RelativeToolTip": "AVA-2025\\CodeGeneration.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-06T16:16:51.541Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Log.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Log.cpp",
               "RelativeDocumentMoniker": "AVA-2025\\Log.cpp",
@@ -115,12 +128,11 @@
               "RelativeToolTip": "AVA-2025\\Log.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-06T16:10:50.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T16:10:50.567Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AVA_2025.cpp",
               "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\AVA_2025.cpp",
               "RelativeDocumentMoniker": "AVA-2025\\AVA_2025.cpp",
@@ -128,8 +140,7 @@
               "RelativeToolTip": "AVA-2025\\AVA_2025.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-06T16:08:16.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T16:08:16.47Z"
             }
           ]
         }

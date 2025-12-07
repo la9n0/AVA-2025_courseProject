@@ -1,0 +1,92 @@
+declare usint function calculateSum(usint a, usint b) {
+	return Sum(a, b);
+}
+
+declare usint function calculatePower(usint base, usint exponent) {
+	return Pow(base, exponent);
+}
+
+declare hallow function printGreeting() {
+	display("Hello");
+	declare text message: "Test program";
+	display(message);
+}
+
+declare hallow function demonstrateOperations() {
+	declare usint x;
+	declare usint y;
+	declare usint result;
+	
+	x: 10;
+	y: 5;
+	
+	result: Sum(x, y);
+	display(result);
+	
+	result: Pow(2, 4);
+	display(result);
+}
+
+declare hallow function workWithSymbols() {
+	declare symbol ch1: 'A';
+	declare symbol ch2: 'B';
+	
+	display(ch1);
+	display(ch2);
+}
+
+declare hallow function stringComparison() {
+	declare text str1: "Hello";
+	declare text str2: "World";
+	
+	declare usint cmpResult;
+	cmpResult: StrCmp(str1, str2);
+	display(cmpResult);
+}
+
+declare hallow function loopExample() {
+	declare usint counter;
+	counter: 0;
+	
+	for (counter: 5) {
+		display(counter);
+		counter++;
+	}
+}
+
+declare usint function testUnaryOperations() {
+	declare usint num;
+	num: 10;
+	num++;
+	display(num);
+	num--;
+	display(num);
+	~num;
+	display(num);
+	return num;
+}
+
+main {
+	printGreeting();
+	demonstrateOperations();
+	workWithSymbols();
+	stringComparison();
+	
+	declare usint num1;
+	declare usint num2;
+	declare usint sum;
+	declare usint power;
+	
+	num1: 15;
+	num2: 25;
+	
+	sum: calculateSum(num1, num2);
+	display(sum);
+	
+	power: calculatePower(3, 3);
+	display(power);
+	
+	loopExample();
+	
+	testUnaryOperations();
+}
