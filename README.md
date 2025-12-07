@@ -1,7 +1,7 @@
-# BVS_2024_Compiler
-A compiler for processing your own programming language.
+# AVA-2025
 
-1) Data types: unsigned integer, character, string, boolean, void type, which returns nothing
-2) Literals: logical, symbolic, string, unsigned integer
-3) Language operations: comparison (equality, inequality, greater than, greater than or equal to, less than, less than or equal to)
-4) Instruction: conditional operator
+1) Типы данных: Целочисленный(2 байта), символьный
+2) Целочисленные операции: тип - унарная операция; набор операций :инкремент, декремент, инверсия
+3) Литералы: произвольно логический; произвольно строковые и/или символьные 
+4) Функции стандартной библиотеки: Сравнение двух строк, произвольная
+5) Инструкции: Оператор - оператор цикла; описание - оператор цикла с фиксированным числом повторений
