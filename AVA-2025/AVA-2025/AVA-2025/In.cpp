@@ -1,17 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "In.h"
 #include "Error.h"
+#include "Parm.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <ios>
+#include <cstdlib>
+#include <cwchar>
+#include <cerrno>
 
 using namespace std;
 
 namespace In {
 	IN getin(wchar_t infile[]) {
-		std::fstream fin(infile);
-		if (!fin) {
+		// Конвертируем wchar_t* в char* для std::fstream
+		char narrowPath[PARM_MAX_SIZE * 2] = {0};
+		size_t convertedChars = 0;
+		errno_t err = wcstombs_s(&convertedChars, narrowPath, PARM_MAX_SIZE * 2, infile, _TRUNCATE);
+		if (err != 0 || convertedChars == 0) {
+			throw ERROR_THROW(110);
+		}
+		
+		std::ifstream fin(narrowPath, std::ios::in | std::ios::binary);
+		if (!fin.is_open()) {
 			throw ERROR_THROW(110); 
 		}
 		fin.imbue(std::locale("ru_RU.UTF-8"));

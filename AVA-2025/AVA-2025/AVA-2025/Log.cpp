@@ -5,6 +5,8 @@
 #include <cstdarg>
 #include <cstring>
 #include <string>
+#include <cstdlib>
+#include <cwchar>
 #include "IT.h"
 #include "LT.h"
 #include "Parm.h"
@@ -174,8 +176,13 @@ namespace Log {
 	LOG getlog(wchar_t logfile[]) {
 		LOG log;
 		wcscpy_s(log.logfile, PARM_MAX_SIZE, logfile);
+		// Конвертируем wchar_t* в char* для std::ofstream
+		char narrowPath[PARM_MAX_SIZE * 2];
+		size_t convertedChars = 0;
+		wcstombs_s(&convertedChars, narrowPath, PARM_MAX_SIZE * 2, logfile, _TRUNCATE);
+		
 		log.stream = new std::ofstream;
-		log.stream->open(logfile);
+		log.stream->open(narrowPath);
 		if (!log.stream->is_open()) {
 			throw ERROR_THROW(140);
 		}

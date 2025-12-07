@@ -1,6 +1,22 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (BVS-2024.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  AVA_2025.cpp
+  CodeGeneration.cpp
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\CodeGeneration.cpp(102,16): warning C4101: func: неиспользованная локальная переменная
   FST.cpp
 D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\FST.cpp(130,21): warning C4018: <: несоответствие типов со знаком и без знака
 D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\FST.cpp(195,21): warning C4018: <: несоответствие типов со знаком и без знака
 D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\FST.cpp(196,22): warning C4018: <: несоответствие типов со знаком и без знака
+  In.cpp
+  Log.cpp
+  LT.cpp
+  MFST.cpp
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\MFST.cpp(284,30): warning C4018: <: несоответствие типов со знаком и без знака
+  Out.cpp
+  Parm.cpp
+  PolishN.cpp
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishN.cpp(66,28): warning C4018: <: несоответствие типов со знаком и без знака
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishN.cpp(76,21): warning C4018: <: несоответствие типов со знаком и без знака
+  Semantic.cpp
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\Semantic.cpp(4,27): warning C4616: предупреждение #pragma: предупреждение с номером "1041" не является действительным предупреждением компилятора
+  Создание кода...
   AVA-2025.vcxproj -> D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\Debug\AVA-2025.exe

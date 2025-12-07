@@ -103,10 +103,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt">
+    <Text Include="..\..\in.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="input.txt.log">
+    <Text Include="..\..\in.txt.log">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

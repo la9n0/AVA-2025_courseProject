@@ -194,7 +194,7 @@ namespace FST {
 		std::string LIT = "LIT";
 		for (int i = 0; i < lexems.size(); i++) {
 			for (int j = 0; j < FSTarray.size(); j++) {
-				FSTarray[j].fst->string = lexems[i].word; // ����� �����
+				FSTarray[j].fst->string = lexems[i].word;
 				if (execute(*FSTarray[j].fst)) {
 					if ((compareVectorToCString(FSTarray[j].fst->string, "false") || compareVectorToCString(FSTarray[j].fst->string, "true")) && FSTarray[j].lex == 'i') {
 						continue;
@@ -1272,50 +1272,49 @@ namespace FST {
 		);
 
 	
-		FST lex_byteLiteral(
-			str,
-			3,
-			NODE(11,
-				RELATION('-', 1),
-				RELATION('0', 2),
-				RELATION('1', 2),
-				RELATION('2', 2),
-				RELATION('3', 2),
-				RELATION('4', 2),
-				RELATION('5', 2),
-				RELATION('6', 2),
-				RELATION('7', 2),
-				RELATION('8', 2),
-				RELATION('9', 2)
-			),
+	FST lex_byteLiteral(
+		str,
+		3,
+		NODE(11,
+			RELATION('-', 1),
+			RELATION('0', 2),
+			RELATION('1', 2),
+			RELATION('2', 2),
+			RELATION('3', 2),
+			RELATION('4', 2),
+			RELATION('5', 2),
+			RELATION('6', 2),
+			RELATION('7', 2),
+			RELATION('8', 2),
+			RELATION('9', 2)
+		),
 
-			NODE(10,
-				RELATION('0', 2),
-				RELATION('1', 2),
-				RELATION('2', 2),
-				RELATION('3', 2),
-				RELATION('4', 2),
-				RELATION('5', 2),
-				RELATION('6', 2),
-				RELATION('7', 2),
-				RELATION('8', 2),
-				RELATION('9', 2)
-			),
+		NODE(10,
+			RELATION('0', 2),
+			RELATION('1', 2),
+			RELATION('2', 2),
+			RELATION('3', 2),
+			RELATION('4', 2),
+			RELATION('5', 2),
+			RELATION('6', 2),
+			RELATION('7', 2),
+			RELATION('8', 2),
+			RELATION('9', 2)
+		),
 
-			NODE(10,
-				RELATION('0', 2),
-				RELATION('1', 2),
-				RELATION('2', 2),
-				RELATION('3', 2),
-				RELATION('4', 2),
-				RELATION('5', 2),
-				RELATION('6', 2),
-				RELATION('7', 2),
-				RELATION('8', 2),
-				RELATION('9', 2)
-			)
-
-		);
+		NODE(10,
+			RELATION('0', 2),
+			RELATION('1', 2),
+			RELATION('2', 2),
+			RELATION('3', 2),
+			RELATION('4', 2),
+			RELATION('5', 2),
+			RELATION('6', 2),
+			RELATION('7', 2),
+			RELATION('8', 2),
+			RELATION('9', 2)
+		)
+	);
 
 		FST lex_booleanLiteral(
 			str,
@@ -1335,7 +1334,6 @@ namespace FST {
 			NODE()
 		);
 
-		
 		std::vector<FSTAssigned> FSTarray = {
 			FSTAssigned(&lex_int, IT::INT, LEX_INT),							// 0
 			FSTAssigned(&lex_symbol, IT::SYMBOL, LEX_SYMBOL),					// 1

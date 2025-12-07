@@ -159,8 +159,8 @@
     <ClCompile Include="Semantic.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="input.txt.log" />
+    <Text Include="..\..\in.txt" />
+    <Text Include="..\..\in.txt.log" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
