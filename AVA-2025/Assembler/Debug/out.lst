@@ -1,0 +1,249 @@
+Microsoft (R) Macro Assembler Version 14.42.34435.0	    12/12/25 02:41:44
+out.asm							     Page 1 - 1
+
+
+				.586
+				.model flat, stdcall
+				includelib libucrt.lib
+				includelib kernel32.lib
+				includelib "../Debug/StaticLibrary.lib
+				ExitProcess PROTO:DWORD 
+				.stack 4096
+
+
+				 outlich PROTO : DWORD
+
+				 outrad PROTO : DWORD
+
+				 compare PROTO : DWORD, : DWORD, : DWORD
+
+ 00000000			.const
+ 00000000 0D 0A 00				newline byte 13, 10, 0
+ 00000003 0005					LTRL1 word 5
+ 00000005 0003					LTRL2 word 3
+ 00000007 FFFE					LTRL3 word -2
+ 00000009 62 00					LTRL4 byte 'b', 0
+ 0000000B 68 65 6C 6C 6F			LTRL5 byte 'hello', 0
+	   00
+ 00000011 77 6F 72 6C 64			LTRL6 byte 'world', 0
+	   00
+ 00000017 0000					LTRL7 word 0
+ 00000019 0002					LTRL8 word 2
+ 00000000			.data
+ 00000000 00000000				temp sdword ?
+ 00000004  00000100 [				buffer byte 256 dup(0)
+	    00
+	   ]
+ 00000104 0000					powloopres word 0
+ 00000106 0000					mainx word 0
+ 00000108 0000					mainy word 0
+ 0000010A 0000					mainz word 0
+ 0000010C 00000000				mainc dword ?
+ 00000110 00000000				mainsone dword ?
+ 00000114 00000000				mainstwo dword ?
+ 00000118 0000					mainacc word 0
+ 0000011A 0000					mainpwr word 0
+ 00000000			.code
+
+				;----------- powloop ------------
+ 00000000			powloop PROC,
+					powloopstart : sdword  
+				; --- save registers ---
+ 00000003  53			push ebx
+ 00000004  52			push edx
+				; ----------------------
+ 00000005  FF 75 08		push powloopstart
+
+ 00000008  5B			pop ebx
+ 00000009  66| 89 1D		mov word ptr powloopres, bx
+	   00000104 R
+
+ 00000010  66| 8B 0D		mov cx, word ptr LTRL1
+	   00000003 R
+ 00000017  66| 83 F9 00		cmp cx, 0
+ 0000001B  74 1E		jz cycle_end1
+ 0000001D			cycle1:
+
+ 0000001D  66| FF 35		push powloopres
+	   00000104 R
+ 00000024  66| FF 35		push powloopres
+	   00000104 R
+ 0000002B  5B			pop ebx
+ 0000002C  58			pop eax
+ 0000002D  0F AF C3		imul eax, ebx
+ 00000030  50			push eax
+
+ 00000031  5B			pop ebx
+ 00000032  66| 89 1D		mov word ptr powloopres, bx
+	   00000104 R
+
+ 00000039  E2 E2		loop cycle1
+ 0000003B			cycle_end1:
+
+				; --- restore registers ---
+ 0000003B  5A			pop edx
+ 0000003C  5B			pop ebx
+				; -------------------------
+				mov eax, powloopres
+out.asm(74) : error A2022:instruction operands must be the same size
+				ret
+ 00000041			powloop ENDP
+				;------------------------------
+
+
+				;----------- MAIN ------------
+ 00000041			main PROC
+ 00000041  66| FF 35		push LTRL1
+	   00000003 R
+
+ 00000048  5B			pop ebx
+ 00000049  66| 89 1D		mov word ptr mainx, bx
+	   00000106 R
+
+ 00000050  66| FF 35		push LTRL2
+	   00000005 R
+
+ 00000057  5B			pop ebx
+ 00000058  66| 89 1D		mov word ptr mainy, bx
+	   00000108 R
+
+ 0000005F  66| FF 35		push LTRL3
+	   00000007 R
+
+ 00000066  5B			pop ebx
+ 00000067  66| 89 1D		mov word ptr mainz, bx
+	   0000010A R
+
+ 0000006E  C7 05 0000010C R	mov mainc, offset LTRL4
+	   00000009 R
+ 00000078  C7 05 00000110 R	mov mainsone, offset LTRL5
+	   0000000B R
+ 00000082  C7 05 00000114 R	mov mainstwo, offset LTRL6
+	   00000011 R
+ 0000008C  66| FF 05		inc word ptr mainx
+	   00000106 R
+
+ 00000093  66| FF 0D		dec word ptr mainy
+	   00000108 R
+
+ 0000009A  66| F7 15		not word ptr mainz
+	   0000010A R
+
+ 000000A1  66| FF 35		push LTRL7
+	   00000017 R
+
+ 000000A8  5B			pop ebx
+ 000000A9  66| 89 1D		mov word ptr mainacc, bx
+	   00000118 R
+
+ 000000B0  66| FF 35		push mainx
+	   00000106 R
+ 000000B7  66| FF 35		push mainy
+	   00000108 R
+ 000000BE  5B			pop ebx
+ 000000BF  58			pop eax
+ 000000C0  03 C3		add eax, ebx
+ 000000C2  50			push eax
+
+ 000000C3  5B			pop ebx
+ 000000C4  66| 89 1D		mov word ptr mainz, bx
+	   0000010A R
+
+
+ 000000CB  66| FF 35		push mainz
+	   0000010A R
+ 000000D2  E8 00000000 E	call outlich
+
+ 000000D7  68 00000000 R	push offset newline
+ 000000DC  E8 00000000 E	call outrad
+
+
+ 000000E1  66| FF 35		push LTRL8
+	   00000019 R
+ 000000E8  E8 FFFFFF13		call powloop
+ 000000ED  50			push eax
+
+ 000000EE  5B			pop ebx
+ 000000EF  66| 89 1D		mov word ptr mainpwr, bx
+	   0000011A R
+
+
+ 000000F6  66| FF 35		push mainpwr
+	   0000011A R
+ 000000FD  E8 00000000 E	call outlich
+
+ 00000102  68 00000000 R	push offset newline
+ 00000107  E8 00000000 E	call outrad
+
+ 0000010C  6A 00		push 0
+ 0000010E  E8 00000000 E	call ExitProcess
+ 00000113			main ENDP
+				end main
+Microsoft (R) Macro Assembler Version 14.42.34435.0	    12/12/25 02:41:44
+out.asm							     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 0000001B Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000011C Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000011E Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+compare  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 0000004C _TEXT	Length= 000000D2 Public STDCALL
+outlich  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+outrad . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+powloop  . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000004C Public STDCALL
+  powloopstart . . . . . . . . .	DWord	 bp + 00000008
+  cycle1 . . . . . . . . . . . .	L Near	 0000001D _TEXT	
+  cycle_end1 . . . . . . . . . .	L Near	 0000003B _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+LTRL1  . . . . . . . . . . . . .	Word	 00000003 CONST	
+LTRL2  . . . . . . . . . . . . .	Word	 00000005 CONST	
+LTRL3  . . . . . . . . . . . . .	Word	 00000007 CONST	
+LTRL4  . . . . . . . . . . . . .	Byte	 00000009 CONST	
+LTRL5  . . . . . . . . . . . . .	Byte	 0000000B CONST	
+LTRL6  . . . . . . . . . . . . .	Byte	 00000011 CONST	
+LTRL7  . . . . . . . . . . . . .	Word	 00000017 CONST	
+LTRL8  . . . . . . . . . . . . .	Word	 00000019 CONST	
+buffer . . . . . . . . . . . . .	Byte	 00000004 _DATA	
+mainacc  . . . . . . . . . . . .	Word	 00000118 _DATA	
+mainc  . . . . . . . . . . . . .	DWord	 0000010C _DATA	
+mainpwr  . . . . . . . . . . . .	Word	 0000011A _DATA	
+mainsone . . . . . . . . . . . .	DWord	 00000110 _DATA	
+mainstwo . . . . . . . . . . . .	DWord	 00000114 _DATA	
+mainx  . . . . . . . . . . . . .	Word	 00000106 _DATA	
+mainy  . . . . . . . . . . . . .	Word	 00000108 _DATA	
+mainz  . . . . . . . . . . . . .	Word	 0000010A _DATA	
+newline  . . . . . . . . . . . .	Byte	 00000000 CONST	
+powloopres . . . . . . . . . . .	Word	 00000104 _DATA	
+temp . . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+
+	   0 Warnings
+	   1 Errors

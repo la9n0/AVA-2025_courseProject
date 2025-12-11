@@ -1,0 +1,715 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{94848793-99C4-4607-BEC4-449F37B83B71}|Assembler\\Assembler.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\Assembler\\out.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{94848793-99C4-4607-BEC4-449F37B83B71}|Assembler\\Assembler.vcxproj|solutionrelative:Assembler\\out.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\out.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D178AAA3-1628-4FDD-9BFA-04396D4EEC1D}|StaticLibrary\\StaticLibrary.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\StaticLibrary\\StaticLibrary.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D178AAA3-1628-4FDD-9BFA-04396D4EEC1D}|StaticLibrary\\StaticLibrary.vcxproj|solutionrelative:StaticLibrary\\StaticLibrary.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\AVA-2025.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\AVA-2025.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LexAnalysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\LexAnalysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\SemAnalysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\SemAnalysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\MFST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\MFST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\PolishNotation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\PolishNotation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\LT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\IT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Generator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\Generator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6989B610-71BE-48C6-AADD-8EC4A61E6BCD}|AVA-2025\\AVA-2025.vcxproj|solutionrelative:AVA-2025\\Error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\deque||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\GRB.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\SemAnalysis.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Generator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Graphs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\FST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "out.asm",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\out.asm",
+              "RelativeDocumentMoniker": "..\\out.asm",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\out.asm",
+              "RelativeToolTip": "..\\out.asm",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-11T23:41:14.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StaticLibrary.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\StaticLibrary\\StaticLibrary.cpp",
+              "RelativeDocumentMoniker": "StaticLibrary\\StaticLibrary.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\StaticLibrary\\StaticLibrary.cpp",
+              "RelativeToolTip": "StaticLibrary\\StaticLibrary.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T23:34:13.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LT.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LT.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\LT.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LT.cpp",
+              "RelativeToolTip": "AVA-2025\\LT.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:08:10.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LexAnalysis.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LexAnalysis.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\LexAnalysis.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\LexAnalysis.cpp",
+              "RelativeToolTip": "AVA-2025\\LexAnalysis.cpp",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAcwP8AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:07:59.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IT.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\IT.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.cpp",
+              "RelativeToolTip": "AVA-2025\\IT.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:07:52.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GRB.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\GRB.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\GRB.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\GRB.cpp",
+              "RelativeToolTip": "AVA-2025\\GRB.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:07:42.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Log.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Log.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\Log.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Log.cpp",
+              "RelativeToolTip": "AVA-2025\\Log.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T17:15:58.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MFST.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\MFST.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\MFST.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\MFST.cpp",
+              "RelativeToolTip": "AVA-2025\\MFST.cpp",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T12:53:29.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AVA-2025.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\AVA-2025.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\AVA-2025.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\AVA-2025.cpp",
+              "RelativeToolTip": "AVA-2025\\AVA-2025.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T12:50:27.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Error.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\Error.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.cpp",
+              "RelativeToolTip": "AVA-2025\\Error.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T08:03:39.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FST.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\FST.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\FST.cpp",
+              "RelativeToolTip": "AVA-2025\\FST.cpp",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:07:35.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "out.asm",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\Assembler\\out.asm",
+              "RelativeDocumentMoniker": "Assembler\\out.asm",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\Assembler\\out.asm",
+              "RelativeToolTip": "Assembler\\out.asm",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAIwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-11T05:47:32.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Parm.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Parm.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\Parm.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Parm.cpp",
+              "RelativeToolTip": "AVA-2025\\Parm.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:08:16.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SemAnalysis.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\SemAnalysis.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\SemAnalysis.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\SemAnalysis.cpp",
+              "RelativeToolTip": "AVA-2025\\SemAnalysis.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:08:23.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PolishNotation.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\PolishNotation.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\PolishNotation.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\PolishNotation.cpp",
+              "RelativeToolTip": "AVA-2025\\PolishNotation.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:08:19.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IT.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.h",
+              "RelativeDocumentMoniker": "AVA-2025\\IT.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\IT.h",
+              "RelativeToolTip": "AVA-2025\\IT.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T20:39:27.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Generator.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Generator.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\Generator.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Generator.cpp",
+              "RelativeToolTip": "AVA-2025\\Generator.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T19:07:37.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Error.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.h",
+              "RelativeDocumentMoniker": "AVA-2025\\Error.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\Error.h",
+              "RelativeToolTip": "AVA-2025\\Error.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T08:18:52.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "In.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\In.cpp",
+              "RelativeDocumentMoniker": "AVA-2025\\In.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\AVA-2025\\AVA-2025\\In.cpp",
+              "RelativeToolTip": "AVA-2025\\In.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T08:17:55.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GRB.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\GRB.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\GRB.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\GRB.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\GRB.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LexAnalysis.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\LexAnalysis.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\LexAnalysis.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Log.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Log.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Log.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LT.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\LT.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\LT.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAA0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SemAnalysis.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\SemAnalysis.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\SemAnalysis.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\SemAnalysis.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\SemAnalysis.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LT.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\LT.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LT.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\LT.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IT.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\IT.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\IT.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Error.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Error.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Error.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADEAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Generator.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Generator.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Generator.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Generator.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Generator.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "PolishNotation.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\PolishNotation.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\PolishNotation.cpp",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAAAKsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "LexAnalysis.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\LexAnalysis.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\LexAnalysis.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\LexAnalysis.cpp",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAowB8CAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PolishNotation.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\PolishNotation.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\PolishNotation.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\PolishNotation.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Parm.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Parm.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Parm.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MFST.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\MFST.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\MFST.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "In.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\In.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\In.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Header.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Header.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Header.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Header.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Header.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Graphs.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Graphs.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Graphs.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Graphs.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Graphs.h",
+              "ViewState": "AQIAAO0AAAAAAAAAAAAAAAcBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Parm.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Parm.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Parm.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Parm.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "In.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\In.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\In.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\In.cpp",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAAALAAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IT.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\IT.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\IT.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\IT.cpp",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAGMAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "FST.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\FST.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\FST.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\FST.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\FST.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Error.h",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.h",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Error.h",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Error.h",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Error.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-11T05:47:32.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "MFST.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\MFST.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\MFST.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\MFST.cpp",
+              "ViewState": "AQIAAJ8AAAAAAAAAAAAAAOEAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Log.cpp",
+              "DocumentMoniker": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.cpp",
+              "RelativeDocumentMoniker": "..\\MDA-2024\\MDA-2024\\Log.cpp",
+              "ToolTip": "D:\\university\\3_sem\\kpo\\courseProject\\AVA-2025\\MDA-2024\\MDA-2024\\Log.cpp",
+              "RelativeToolTip": "..\\MDA-2024\\MDA-2024\\Log.cpp",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAEQAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-11T05:47:32.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "deque",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\deque",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\deque",
+              "ViewState": "AQIAAI4EAAAAAAAAAAASwKkEAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-14T13:39:31.171Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

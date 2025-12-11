@@ -1,0 +1,40 @@
+number function powloop(number start)
+[
+    var number res;
+    res = start;
+    cycle 5 [
+        res = res * res;
+    ]
+    return res;
+]
+
+main
+[
+    var number x;
+    var number y;
+    var number z;
+    var char c;
+    var line sone;
+    var line stwo;
+    var number acc;
+
+    x = 5;
+    y = 0x0003;
+    z = -2;
+    c = 'b';
+    sone = "hello";
+    stwo = "world";
+
+    inc x;
+    dec y;
+    inv z;
+    acc = 0;
+
+    z = x + y;
+    print z; writeline;
+
+    var number pwr;
+    pwr = powloop(2);
+    print pwr; writeline;
+]
+

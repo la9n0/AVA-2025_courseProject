@@ -1,0 +1,3 @@
+﻿  Assembling out.asm...
+out.asm(74): error A2022: instruction operands must be the same size
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml.exe /c /nologo /Zi /Fo"Debug\out.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Taout.asm" с кодом "1".
