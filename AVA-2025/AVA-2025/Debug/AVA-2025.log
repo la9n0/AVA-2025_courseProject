@@ -1,28 +1,4 @@
-﻿  AVA-2025.cpp
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\Generator.h(32,9): warning C4005: CONST: изменение макроопределения
-  (компиляция исходного файла "AVA-2025.cpp")
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(153,9):
-      см. предыдущее определение "CONST"
-  
-  FST.cpp
-  GRB.cpp
-  Generator.cpp
-  IT.cpp
-  In.cpp
-  LexAnalysis.cpp
-  MFST.cpp
-  PolishNotation.cpp
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(39,39): warning C4018: <: несоответствие типов со знаком и без знака
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,46): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,79): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,105): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,132): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,158): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,188): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,217): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,241): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,270): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\AVA-2025\PolishNotation.cpp(170,296): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+﻿  Error.cpp
   SemAnalysis.cpp
   Создание кода...
   AVA-2025.vcxproj -> D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\Debug\AVA-2025.exe

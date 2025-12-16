@@ -20,7 +20,7 @@ namespace Semantic
 				if (tables.lextable.table[i + 1].lexema != LEX_ID_TYPE)
 				{
 					sem_ok = false;
-					Log::writeError(log.stream, Error::GetError(303, tables.lextable.table[i].sn, 0));
+					Log::writeError(log.stream, Error::GetError(408, tables.lextable.table[i].sn, 0));
 				}
 			}
 			case LEX_DIRSLASH:
@@ -37,7 +37,7 @@ namespace Semantic
 								if (tables.lextable.table[k + 2].lexema == LEX_LITERAL && tables.idtable.table[tables.lextable.table[k + 2].idxTI].value.vint == 0)
 								{
 									sem_ok = false;
-									Log::writeError(log.stream, Error::GetError(318, tables.lextable.table[k].sn, 0));
+									Log::writeError(log.stream, Error::GetError(407, tables.lextable.table[k].sn, 0));
 								}
 							}
 						}
@@ -48,7 +48,7 @@ namespace Semantic
 					if (tables.idtable.table[tables.lextable.table[i + 1].idxTI].value.vint == 0)
 					{
 						sem_ok = false;
-						Log::writeError(log.stream, Error::GetError(318, tables.lextable.table[k].sn, 0));
+						Log::writeError(log.stream, Error::GetError(407, tables.lextable.table[k].sn, 0));
 					}
 				}
 				break;
@@ -71,7 +71,7 @@ namespace Semantic
 								IT::IDDATATYPE righttype = tables.idtable.table[tables.lextable.table[k].idxTI].iddatatype;
 								if (lefttype != righttype)
 								{
-									Log::writeError(log.stream, Error::GetError(314, tables.lextable.table[k].sn, 0));
+									Log::writeError(log.stream, Error::GetError(403, tables.lextable.table[k].sn, 0));
 									sem_ok = false;
 									break;
 								}
@@ -92,7 +92,7 @@ namespace Semantic
 							char l = tables.lextable.table[k].lexema;
 							if (l == LEX_PLUS || l == LEX_MINUS || l == LEX_STAR)
 							{
-								Log::writeError(log.stream, Error::GetError(316, tables.lextable.table[k].sn, 0));
+								Log::writeError(log.stream, Error::GetError(405, tables.lextable.table[k].sn, 0));
 								sem_ok = false;
 								break;
 							}
@@ -120,7 +120,7 @@ namespace Semantic
 								{
 									if (tables.idtable.table[next].iddatatype != e.iddatatype)
 									{
-										Log::writeError(log.stream, Error::GetError(315, tables.lextable.table[k].sn, 0));
+										Log::writeError(log.stream, Error::GetError(404, tables.lextable.table[k].sn, 0));
 										sem_ok = false;
 										break;
 									}
@@ -147,7 +147,7 @@ namespace Semantic
 								IT::IDDATATYPE ctype = tables.idtable.table[tables.lextable.table[j].idxTI].iddatatype;
 								if (ctype != e.value.params.types[paramscount - 1])
 								{
-									Log::writeError(log.stream, Error::GetError(309, tables.lextable.table[i].sn, 0));
+									Log::writeError(log.stream, Error::GetError(402, tables.lextable.table[i].sn, 0));
 									sem_ok = false;
 									break;
 								}
@@ -157,12 +157,12 @@ namespace Semantic
 						}
 						if (paramscount != e.value.params.count)
 						{
-							Log::writeError(log.stream, Error::GetError(308, tables.lextable.table[i].sn, 0));
+							Log::writeError(log.stream, Error::GetError(401, tables.lextable.table[i].sn, 0));
 							sem_ok = false;
 						}
 						if (paramscount > 3)
 						{
-							Log::writeError(log.stream, Error::GetError(307, tables.lextable.table[i].sn, 0));
+							Log::writeError(log.stream, Error::GetError(400, tables.lextable.table[i].sn, 0));
 							sem_ok = false;
 						}
 					}
@@ -184,7 +184,7 @@ namespace Semantic
 				}
 				if (!flag)
 				{
-					Log::writeError(log.stream, Error::GetError(317, tables.lextable.table[i].sn, 0));
+					Log::writeError(log.stream, Error::GetError(406, tables.lextable.table[i].sn, 0));
 					sem_ok = false;
 				}
 				break;
@@ -194,7 +194,7 @@ namespace Semantic
 				if (tables.lextable.table[i + 1].idxTI == NULLIDX_TI ||
 					tables.idtable.table[tables.lextable.table[i + 1].idxTI].iddatatype != IT::IDDATATYPE::INT)
 				{
-					Log::writeError(log.stream, Error::GetError(317, tables.lextable.table[i].sn, 0));
+					Log::writeError(log.stream, Error::GetError(413, tables.lextable.table[i].sn, 0));
 					sem_ok = false;
 				}
 				break;
@@ -206,7 +206,7 @@ namespace Semantic
 				if (tables.lextable.table[i + 1].idxTI == NULLIDX_TI ||
 					tables.idtable.table[tables.lextable.table[i + 1].idxTI].iddatatype != IT::IDDATATYPE::INT)
 				{
-					Log::writeError(log.stream, Error::GetError(317, tables.lextable.table[i].sn, 0));
+					Log::writeError(log.stream, Error::GetError(414, tables.lextable.table[i].sn, 0));
 					sem_ok = false;
 				}
 				break;

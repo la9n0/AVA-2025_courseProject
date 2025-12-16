@@ -2,6 +2,8 @@
 #include "Error.h"
 #include "Log.h"
 
+#define GRB_ERROR_SERIES 600
+
 typedef short GRBALPHABET;
 
 #define NS(n)GRB::Rule::Chain::N(n)

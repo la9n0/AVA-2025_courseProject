@@ -186,22 +186,22 @@ namespace Lexer
 			bool int_ok = IT::SetValue(itentry, id);
 			if (!int_ok)
 			{
-				Log::writeError(log.stream, Error::GetError(313, line, 0));
+				Log::writeError(log.stream, Error::GetError(214, line, 0));
 				lex_ok = false;
 			}
 			if (itentry->iddatatype == IT::IDDATATYPE::STR && itentry->value.vstr.len == 0)
 			{
-				Log::writeError(log.stream, Error::GetError(310, line, 0));
+				Log::writeError(log.stream, Error::GetError(211, line, 0));
 				lex_ok = false;
 			}
 			if (itentry->iddatatype == IT::IDDATATYPE::CHAR && itentry->value.vstr.len > CHAR_MAXSIZE)
 			{
-				Log::writeError(log.stream, Error::GetError(319, line, 0));
+				Log::writeError(log.stream, Error::GetError(215, line, 0));
 				lex_ok = false;
 			}
 			if (itentry->iddatatype == IT::IDDATATYPE::CHAR && itentry->value.vstr.len == 0)
 			{
-				Log::writeError(log.stream, Error::GetError(310, line, 0));
+				Log::writeError(log.stream, Error::GetError(211, line, 0));
 				lex_ok = false;
 			}
 			strcpy_s(itentry->id, getNextLiteralName());
@@ -285,12 +285,12 @@ namespace Lexer
 
 		if (i > 0 && tables.lextable.table[i - 1].lexema == LEX_VAR && lex != LEX_ID_TYPE)
 		{
-			Log::writeError(log.stream, Error::GetError(304, line, 0));
+			Log::writeError(log.stream, Error::GetError(208, line, 0));
 			lex_ok = false;
 		}
 		if (i > 1 && itentry->idtype == IT::IDTYPE::F && tables.lextable.table[i - 1].lexema != LEX_FUNCTION)
 		{
-			Log::writeError(log.stream, Error::GetError(303, line, 0));
+			Log::writeError(log.stream, Error::GetError(207, line, 0));
 			lex_ok = false;
 		}
 		if (itentry->iddatatype == IT::IDDATATYPE::UNDEF)
@@ -514,7 +514,7 @@ namespace Lexer
 										{
 											if (itentry->value.params.count >= MAX_PARAMS_COUNT)
 											{
-												Log::writeError(log.stream, Error::GetError(306, curline, 0));
+												Log::writeError(log.stream, Error::GetError(210, curline, 0));
 												lex_ok = false;
 												break;
 											}
@@ -529,12 +529,53 @@ namespace Lexer
 						else
 						{
 							int i = tables.lextable.size - 1;
-							if (i > 0 && tables.lextable.table[i - 1].lexema == LEX_VAR || tables.lextable.table[i].lexema == LEX_VAR
+							bool should_suppress_305 = false;
+							
+							if (i > 0)
+							{
+								for (int j = i - 1; j >= 0 && j >= i - 20; j--)
+								{
+									if (j >= 2 && 
+										tables.lextable.table[j].lexema == LEX_ID &&
+										tables.lextable.table[j - 1].lexema == LEX_ID_TYPE &&
+										tables.lextable.table[j - 2].lexema == LEX_VAR)
+									{
+										int semicolon_pos = j + 1;
+										bool found_semicolon = false;
+										int var_line = tables.lextable.table[j].sn;
+										
+										while (semicolon_pos < tables.lextable.size && 
+											   semicolon_pos <= j + 5 &&
+											   tables.lextable.table[semicolon_pos].sn == var_line)
+										{
+											if (tables.lextable.table[semicolon_pos].lexema == LEX_SEPARATOR)
+											{
+												found_semicolon = true;
+												break;
+											}
+											semicolon_pos++;
+										}
+										
+										if (!found_semicolon)
+										{
+											should_suppress_305 = true;
+										}
+										break;
+									}
+									else if (tables.lextable.table[j].sn != curline && j < i - 1)
+									{
+										break;
+									}
+								}
+							}
+							
+							if (i > 0 && !should_suppress_305 && 
+								(tables.lextable.table[i - 1].lexema == LEX_VAR || tables.lextable.table[i].lexema == LEX_VAR
 								|| tables.lextable.table[i - 1].lexema == LEX_FUNCTION || tables.lextable.table[i].lexema == LEX_FUNCTION
 								|| tables.lextable.table[i - 1].lexema == LEX_ID_TYPE || tables.lextable.table[i].lexema == LEX_ID_TYPE
-								|| tables.lextable.table[i - 1].lexema == LEX_VOID || tables.lextable.table[i].lexema == LEX_VOID)
+								|| tables.lextable.table[i - 1].lexema == LEX_VOID || tables.lextable.table[i].lexema == LEX_VOID))
 							{
-								Log::writeError(log.stream, Error::GetError(305, curline, 0));
+								Log::writeError(log.stream, Error::GetError(209, curline, 0));
 								lex_ok = false;
 							}
 							idxTI = IT::isId(tables.idtable, id);
@@ -559,12 +600,12 @@ namespace Lexer
 
 		if (enterPoint == NULL)
 		{
-			Log::writeError(log.stream, Error::GetError(301));
+			Log::writeError(log.stream, Error::GetError(205));
 			lex_ok = false;
 		}
 		if (enterPoint > 1)
 		{
-			Log::writeError(log.stream, Error::GetError(302));
+			Log::writeError(log.stream, Error::GetError(206));
 			lex_ok = false;
 		}
 		return lex_ok;

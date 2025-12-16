@@ -152,14 +152,14 @@ namespace Log
 	void writeError(std::ostream* stream, Error::ERROR e)
 	{
 		std::ostringstream oss;
-		if (e.position.col == -1 || e.position.line == -1)
-			oss << "Ошибка N" << e.id << ": " << e.message;
-		else if (e.position.col == NULL)
-			oss << "Ошибка N" << e.id << ": " << e.message << " Строка: " << e.position.line;
+		if (e.position.line == -1 && e.position.col == -1)
+			oss << "Ошибка " << e.id << ": " << e.message;
+		else if (e.position.col == 0 || e.position.col == -1)
+			oss << "Ошибка " << e.id << ": " << e.message << ", строка " << e.position.line;
 		else
-			oss << "Ошибка N" << e.id << ": " << e.message
-				<< " Строка: " << e.position.line
-				<< " Позиция: " << e.position.col;
+			oss << "Ошибка " << e.id << ": " << e.message
+				<< ", строка " << e.position.line
+				<< ", столбец " << e.position.col;
 
 		std::string msg = oss.str();
 		if (stream == NULL)

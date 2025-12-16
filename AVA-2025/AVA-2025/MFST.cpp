@@ -162,13 +162,104 @@ namespace MFST
 			rc = true;
 			break;
 		}
-		case NS_NORULE:         MFST_TRACE4(log, "------>NS_NORULE")
+		case NS_NORULE:         
+		{
+			MFST_TRACE4(log, "------>NS_NORULE")
 			* log.stream << "-------------------------------------------------------------------------------------" << std::endl;
-			*log.stream << getDiagnosis(0, buf) << std::endl;
-			*log.stream << getDiagnosis(1, buf) << std::endl;
-			*log.stream << getDiagnosis(2, buf) << std::endl;
+			bool error_610_printed = false;
+			for (int i = 0; i < 3; i++)
+			{
+				if (diagnosis[i].lenta_position >= 0)
+				{
+					int errid = grebach.getRule(diagnosis[i].nrule).iderror;
+					
+					if (errid == GRB_ERROR_SERIES + 10)
+					{
+						if (i == 0)
+						{
+							int pos = diagnosis[i].lenta_position;
+							if (pos < lenta_size && lenta[pos] != TS(';') && lenta[pos] != TS(']'))
+							{
+								getDiagnosis(i, buf);
+								if (strlen(buf) > 0)
+								{
+									*log.stream << buf << std::endl;
+									if (log.stream != &std::cout)
+									{
+										Log::printConsoleUtf8(buf);
+										Log::printConsoleUtf8("\n");
+									}
+									error_610_printed = true;
+								}
+							}
+						}
+					}
+					else
+					{
+						getDiagnosis(i, buf);
+						if (strlen(buf) > 0)
+						{
+							*log.stream << buf << std::endl;
+							if (log.stream != &std::cout)
+							{
+								Log::printConsoleUtf8(buf);
+								Log::printConsoleUtf8("\n");
+							}
+						}
+					}
+				}
+			}
 			break;
-		case NS_NORULECHAIN:       MFST_TRACE4(log, "------>NS_NORULECHAIN") break;
+		}
+		case NS_NORULECHAIN:       
+		{
+			MFST_TRACE4(log, "------>NS_NORULECHAIN")
+			*log.stream << "-------------------------------------------------------------------------------------" << std::endl;
+			bool error_610_printed = false;
+			for (int i = 0; i < 3; i++)
+			{
+				if (diagnosis[i].lenta_position >= 0)
+				{
+					int errid = grebach.getRule(diagnosis[i].nrule).iderror;
+					
+					if (errid == GRB_ERROR_SERIES + 10)
+					{
+						if (i == 0)
+						{
+							int pos = diagnosis[i].lenta_position;
+							if (pos < lenta_size && lenta[pos] != TS(';') && lenta[pos] != TS(']'))
+							{
+								getDiagnosis(i, buf);
+								if (strlen(buf) > 0)
+								{
+									*log.stream << buf << std::endl;
+									if (log.stream != &std::cout)
+									{
+										Log::printConsoleUtf8(buf);
+										Log::printConsoleUtf8("\n");
+									}
+									error_610_printed = true;
+								}
+							}
+						}
+					}
+					else
+					{
+						getDiagnosis(i, buf);
+						if (strlen(buf) > 0)
+						{
+							*log.stream << buf << std::endl;
+							if (log.stream != &std::cout)
+							{
+								Log::printConsoleUtf8(buf);
+								Log::printConsoleUtf8("\n");
+							}
+						}
+					}
+				}
+			}
+			break;
+		}
 		case NS_ERROR:             MFST_TRACE4(log, "------>NS_ERROR") break;
 		case SURPRISE:             MFST_TRACE4(log, "------>SURPRISE") break;
 		};
@@ -200,10 +291,43 @@ namespace MFST
 		if (n < MFST_DIAGN_digit && diagnosis[n].lenta_position >= 0)
 		{
 			int errid = grebach.getRule(diagnosis[n].nrule).iderror;
+			
+			if (errid == GRB_ERROR_SERIES + 10 && n == 0)
+			{
+				int pos = diagnosis[n].lenta_position;
+				if (pos < lenta_size && lenta[pos] != TS(';') && lenta[pos] != TS(']'))
+				{
+					errid = 610;
+				}
+				else if (pos > 0)
+				{
+					int prev_pos = pos - 1;
+					while (prev_pos >= 0 && prev_pos < lenta_size && 
+						   (lenta[prev_pos] == TS('i') || lenta[prev_pos] == TS('t') || 
+							lenta[prev_pos] == TS('n') || lenta[prev_pos] == TS('l')))
+					{
+						prev_pos--;
+					}
+					if (prev_pos >= 0 && prev_pos < lenta_size && lenta[prev_pos] != TS(';'))
+					{
+						if (pos >= 3 && lenta[pos - 3] == TS('n') && 
+							lenta[pos - 2] == TS('t') && lenta[pos - 1] == TS('i'))
+						{
+							errid = 610;
+						}
+						else if (pos >= 2 && lenta[pos - 2] == TS('n') && 
+								 lenta[pos - 1] == TS('t'))
+						{
+							errid = 610;
+						}
+					}
+				}
+			}
+			
 			Error::ERROR err = Error::GetError(errid);
 			std::ostringstream oss;
-			oss << "Ошибка " << err.id << ": строка " << lex.lextable.table[diagnosis[n].lenta_position].sn
-				<< ", " << err.message;
+			oss << "Ошибка " << err.id << ": " << err.message
+				<< ", строка " << lex.lextable.table[diagnosis[n].lenta_position].sn;
 			std::string s = oss.str();
 			strncpy_s(buf, MFST_DIAGN_MAXSIZE, s.c_str(), _TRUNCATE);
 		}

@@ -137,7 +137,7 @@ namespace In
 					}
 					if (code[text[j]] == IN::N)
 					{
-						Log::writeError(stream, Error::GetError(311, line, 0));
+						Log::writeError(stream, Error::GetError(212, line, 0));
 						isltrlgood = false;
 						break;
 					}
@@ -149,7 +149,7 @@ namespace In
 					{
 						if (j == 256 || i + j == textSize)
 						{
-							Log::writeError(stream, Error::GetError(312, line, 0));
+							Log::writeError(stream, Error::GetError(213, line, 0));
 							break;
 						}
 						buffer[bufpos++] = text[i + j];
@@ -168,7 +168,7 @@ namespace In
 					{
 						if (j == 256 || i + j == textSize)
 						{
-							Log::writeError(stream, Error::GetError(312, line, 0));
+							Log::writeError(stream, Error::GetError(213, line, 0));
 							break;
 						}
 						buffer[bufpos++] = text[i + j];
