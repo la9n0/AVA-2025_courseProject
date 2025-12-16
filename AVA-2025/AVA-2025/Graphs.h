@@ -152,11 +152,13 @@
 	FST::NODE(1, FST::RELATION('e',4)),\
 	FST::NODE()
 
-#define GRAPH_CHAR 5, \
-	FST::NODE(1, FST::RELATION('c',1)),\
-	FST::NODE(1, FST::RELATION('h',2)),\
-	FST::NODE(1, FST::RELATION('a',3)),\
-	FST::NODE(1, FST::RELATION('r',4)),\
+#define GRAPH_SYMBOL 7, \
+	FST::NODE(1, FST::RELATION('s',1)),\
+	FST::NODE(1, FST::RELATION('y',2)),\
+	FST::NODE(1, FST::RELATION('m',3)),\
+	FST::NODE(1, FST::RELATION('b',4)),\
+	FST::NODE(1, FST::RELATION('o',5)),\
+	FST::NODE(1, FST::RELATION('l',6)),\
 	FST::NODE()
 
 #define GRAPH_MAIN 5, \

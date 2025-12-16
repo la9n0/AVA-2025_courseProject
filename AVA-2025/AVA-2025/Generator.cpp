@@ -1,6 +1,6 @@
 #include "Generator.h"
 #include "Parm.h"
-#include "LexAnalysis.h"
+#include "Lexer.h"
 #include "IT.h"
 #include "LT.h"
 #include <sstream>
@@ -47,7 +47,7 @@ namespace Gener
 		while (!temp.empty())
 		{
 			IT::Entry entry = temp.top();
-			if (entry.idtype == IT::IDTYPE::L && (entry.iddatatype == IT::IDDATATYPE::STR || entry.iddatatype == IT::IDDATATYPE::CHAR))
+			if (entry.idtype == IT::IDTYPE::L && (entry.iddatatype == IT::IDDATATYPE::STR || entry.iddatatype == IT::IDDATATYPE::SYMBOL))
 				str = str + "push offset " + string(entry.id) + "\n";
 			else if (entry.iddatatype == IT::IDDATATYPE::INT)
 			{
@@ -138,7 +138,7 @@ namespace Gener
 			}
 			break;
 		}
-		case IT::IDDATATYPE::CHAR:
+		case IT::IDDATATYPE::SYMBOL:
 		{
 			char lex = LEXEMA(i + 1);
 			IT::Entry e2 = ITENTRY(i + 1);
@@ -221,7 +221,7 @@ namespace Gener
 				{
 				case IT::IDDATATYPE::INT:  str = str + " word " + itoS(e.value.vint);  break;
 				case IT::IDDATATYPE::STR:  str = str + " byte '" + string(e.value.vstr.str) + "', 0";  break;
-				case IT::IDDATATYPE::CHAR:  str = str + " byte '" + string(e.value.vstr.str) + "', 0";  break;
+				case IT::IDDATATYPE::SYMBOL:  str = str + " byte '" + string(e.value.vstr.str) + "', 0";  break;
 				}
 				vlt.push_back(str);
 			}
@@ -231,7 +231,7 @@ namespace Gener
 				{
 				case IT::IDDATATYPE::INT: str = str + " word 0";  break;
 				case IT::IDDATATYPE::STR: str = str + " dword ?";  break;
-				case IT::IDDATATYPE::CHAR: str = str + " dword ?";  break;
+				case IT::IDDATATYPE::SYMBOL: str = str + " dword ?";  break;
 				}
 				vid.push_back(str);
 			}
@@ -349,7 +349,7 @@ namespace Gener
 						else  str = str + "\npush " + e.id + "\ncall outrad\n";
 					}
 					break;
-				case IT::IDDATATYPE::CHAR:
+				case IT::IDDATATYPE::SYMBOL:
 					if (inLoop)
 					{
 						if (e.idtype == IT::IDTYPE::L)  str = str + "mov saveecx, ecx\npush offset " + e.id + "\ncall outrad\nmov ecx, saveecx\n";

@@ -44,7 +44,7 @@ main
     var number y;
     var number z;
     var number result;
-    var char ch;
+    var symbol ch;
     var line firststr;
     var line secondstr;
     var line thirdstr;
@@ -109,6 +109,7 @@ main
     result = calculate(20, 4);
     print "calculate(20,4)="; print result; writeline;
     
+
     writeline; print "Static library output:"; writeline;
     len = slength(firststr);
     print "slength(firststr)="; print len; writeline;

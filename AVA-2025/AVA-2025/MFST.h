@@ -2,7 +2,7 @@
 
 #include "MFST.h"
 #include "GRB.h"
-#include "LexAnalysis.h"
+#include "Lexer.h"
 #include<stack>
 
 class my_stack_SHORT :public std::stack<short> {

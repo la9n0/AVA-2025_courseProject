@@ -90,8 +90,8 @@ namespace IT
 			case IT::IDDATATYPE::PROC:
 				strcat(type, "   proc");
 				break;
-			case IT::IDDATATYPE::CHAR:
-				strcat(type, "   char");
+			case IT::IDDATATYPE::SYMBOL:
+				strcat(type, "   symbol");
 				break;
 			case IT::IDDATATYPE::UNDEF:
 				strcat(type, "UNDEFINED");
@@ -138,8 +138,8 @@ namespace IT
 					case IT::IDDATATYPE::STR:
 						oss << "line |";
 						break;
-					case IT::IDDATATYPE::CHAR:
-						oss << "char |";
+					case IT::IDDATATYPE::SYMBOL:
+						oss << "symbol |";
 						break;
 					case IT::IDDATATYPE::PROC:
 					case IT::IDDATATYPE::UNDEF:

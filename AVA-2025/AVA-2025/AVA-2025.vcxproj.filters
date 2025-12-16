@@ -33,7 +33,7 @@
     <ClCompile Include="IT.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="LexAnalysis.cpp">
+    <ClCompile Include="Lexer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Log.cpp">
@@ -54,7 +54,7 @@
     <ClCompile Include="PolishNotation.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="SemAnalysis.cpp">
+    <ClCompile Include="Semantic.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClInclude Include="IT.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LexAnalysis.h">
+    <ClInclude Include="Lexer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Log.h">
@@ -101,7 +101,7 @@
     <ClInclude Include="PolishNotation.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SemAnalysis.h">
+    <ClInclude Include="Semantic.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

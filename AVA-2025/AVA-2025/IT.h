@@ -8,7 +8,7 @@
 #define STR_DEFAULT	0x00
 #define NULLIDX_TI		0xffffffff
 #define STR_MAXSIZE	255
-#define CHAR_MAXSIZE 1
+#define SYMBOL_MAXSIZE 1
 #define INT_MAXSIZE   2147483647
 #define INT_MINSIZE   -2147483647
 #define MAX_PARAMS_COUNT 2
@@ -23,7 +23,7 @@
 
 namespace IT
 {
-	enum IDDATATYPE { INT = 1, STR = 2, PROC = 3, CHAR = 4, UNDEF };
+	enum IDDATATYPE { INT = 1, STR = 2, PROC = 3, SYMBOL = 4, UNDEF };
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4, S = 5 };
 	enum STDFNC { F_COMPARE, F_SLENGTH, F_RND, F_COPY, F_NOT_STD };
 	static const IDDATATYPE COMPARE_PARAMS[] = { IT::IDDATATYPE::STR, IT::IDDATATYPE::STR };

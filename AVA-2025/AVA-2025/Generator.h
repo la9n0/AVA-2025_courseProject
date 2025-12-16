@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IT.h"
-#include "LexAnalysis.h"
+#include "Lexer.h"
 #include "LT.h"
 
 #define SEPSTREMP "\n;------------------------------\n"
