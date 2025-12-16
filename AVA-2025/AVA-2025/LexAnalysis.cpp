@@ -14,7 +14,7 @@ int DecimicalNotation(std::string input, int scaleofnot) {
 		int value = std::stoi(input.substr(isNegative ? 1 + startIdx : startIdx), nullptr, scaleofnot);
 		return isNegative ? -value : value;
 	}
-	catch (const std::out_of_range&) {	
+	catch (const std::out_of_range&) {
 		return input[0] == '-' ? INT_MINSIZE : INT_MAXSIZE;
 	}
 }
@@ -45,7 +45,7 @@ namespace Lexer
 		{ LEX_LITERAL_HEX, FST::FST(GRAPH_HEX_LITERAL) }
 	};
 
-	char* getScopeName(IT::IdTable idtable, char* prevword) // ��� ������� ������� ��������� (���� ��������� ������ �����)
+	char* getScopeName(IT::IdTable idtable, char* prevword)
 	{
 		char* a = new char[5];
 		a[0] = 'm';
@@ -58,10 +58,10 @@ namespace Lexer
 		for (int i = idtable.size - 1; i >= 0; i--)
 			if (idtable.table[i].idtype == IT::IDTYPE::F)
 				return idtable.table[i].id;
-		return nullptr; // �� ������� ��� �������
+		return nullptr;
 	}
 
-	int getLiteralIndex(IT::IdTable ittable, char* value, IT::IDDATATYPE type, Log::LOG log, int line) // �������� ������ ���������� ��������(�� ��������)
+	int getLiteralIndex(IT::IdTable ittable, char* value, IT::IDDATATYPE type, Log::LOG log, int line)
 	{
 		for (int i = 0; i < ittable.size; i++)
 		{
@@ -76,7 +76,7 @@ namespace Lexer
 				}
 				case IT::IDDATATYPE::STR:
 					char buf[STR_MAXSIZE];
-					for (unsigned j = 1; j < strlen(value) - 1; j++) // ��� �������
+					for (unsigned j = 1; j < strlen(value) - 1; j++)
 						buf[j - 1] = value[j];
 					buf[strlen(value) - 2] = IN_CODE_NULL;
 					if (strcmp(ittable.table[i].value.vstr.str, buf) == 0)
@@ -84,7 +84,7 @@ namespace Lexer
 					break;
 				case IT::IDDATATYPE::CHAR:
 					char buk[STR_MAXSIZE];
-					for (unsigned j = 1; j < strlen(value) - 1; j++) // ��� �������
+					for (unsigned j = 1; j < strlen(value) - 1; j++)
 						buk[j - 1] = value[j];
 					buk[strlen(value) - 2] = IN_CODE_NULL;
 					if (strcmp(ittable.table[i].value.vstr.str, buk) == 0)
@@ -99,28 +99,28 @@ namespace Lexer
 	IT::IDDATATYPE getType(char* curword, char* idtype)
 	{
 		if (!strcmp("inc", idtype) || !strcmp("dec", idtype) || !strcmp("inv", idtype))
-			return IT::IDDATATYPE::INT; // унарные операции над number
+			return IT::IDDATATYPE::INT;
 		if (!strcmp(TYPE_VOID, idtype))
-			return IT::IDDATATYPE::PROC; // ���������
+			return IT::IDDATATYPE::PROC;
 		if (!strcmp(TYPE_STRING, idtype))
-			return IT::IDDATATYPE::STR;  // ��������� ��
+			return IT::IDDATATYPE::STR;
 		if (!strcmp(TYPE_CHAR, idtype))
-			return IT::IDDATATYPE::CHAR;  // ���������� ��
+			return IT::IDDATATYPE::CHAR;
 		if (!strcmp(TYPE_DIGIT, idtype))
-			return IT::IDDATATYPE::INT;	 // ��������  ��
+			return IT::IDDATATYPE::INT;
 		if (isdigit(*curword) || *curword == LEX_MINUS)
-			return IT::IDDATATYPE::INT;				// �������� �������
+			return IT::IDDATATYPE::INT;
 		else if (*curword == IN_CODE_QUOTE)
-			return IT::IDDATATYPE::STR;	// ��������� �������
+			return IT::IDDATATYPE::STR;
 		else if (*curword == IN_CODE_QUOTE2)
-			return IT::IDDATATYPE::CHAR;	// ���������� �������
+			return IT::IDDATATYPE::CHAR;
 
-		return IT::IDDATATYPE::UNDEF;		// �������������� ���, ��������� ������
+		return IT::IDDATATYPE::UNDEF;
 	}
 
-	int getIndexInLT(LT::LexTable& lextable, int itTableIndex)					// ������ ������ ������� � ������� ������
+	int getIndexInLT(LT::LexTable& lextable, int itTableIndex)
 	{
-		if (itTableIndex == NULLIDX_TI)		// ���� ������������� ����������� �������
+		if (itTableIndex == NULLIDX_TI)
 			return lextable.size;
 		for (int i = 0; i < lextable.size; i++)
 			if (itTableIndex == lextable.table[i].idxTI)
@@ -139,10 +139,16 @@ namespace Lexer
 	{
 		if (!strcmp(COMPARE, id))
 			return IT::STDFNC::F_COMPARE;
+		if (!strcmp(LENGHT, id))
+			return IT::STDFNC::F_SLENGTH;
+		if (!strcmp(RANDOM, id))
+			return IT::STDFNC::F_RND;
+		if (!strcmp(COPY, id))
+			return IT::STDFNC::F_COPY;
 		return IT::STDFNC::F_NOT_STD;
 	}
 
-	char* getNextLiteralName()						// ������������� ��������� ��� ��������
+	char* getNextLiteralName()
 	{
 		static int literaldigit = 1;
 		char* buf = new char[SCOPED_ID_MAXSIZE], lich[3];
@@ -152,43 +158,39 @@ namespace Lexer
 		return buf;
 	}
 
-	IT::Entry* getEntry(						// ��������� � ���������� ������ ��
-		Lexer::LEX& tables,						// �� + ��
-		char lex,								// �������
-		char* id,								// �������������
-		char* idtype,							// ���������� (���)
-		bool isParam,							// ������� ��������� �������
-		bool isFunc,							// ������� �������
-		Log::LOG log,							// ��������
-		int line,								// ������ � �������� ������
-		bool& lex_ok)							// ���� ������(�� ������)
+	IT::Entry* getEntry(
+		Lexer::LEX& tables,
+		char lex,
+		char* id,
+		char* idtype,
+		bool isParam,
+		bool isFunc,
+		Log::LOG log,
+		int line,
+		bool& lex_ok)
 	{
-		// ��� ������
 		IT::IDDATATYPE type = getType(id, idtype);
-		int index = IT::isId(tables.idtable, id);	// ������ ������������� �������������� ��� -1
+		int index = IT::isId(tables.idtable, id);
 		if (lex == LEX_LITERAL)
 			index = getLiteralIndex(tables.idtable, id, type, log, line);
 		if (index != NULLIDX_TI)
-			return nullptr;	// ��� ����������
+			return nullptr;
 
 		IT::Entry* itentry = new IT::Entry;
-		itentry->iddatatype = type; // ��������� ��� ������
+		itentry->iddatatype = type;
 
-		// ������ ������ ������ � ������� ������ 
 		itentry->idxfirstLE = getIndexInLT(tables.lextable, index);
 
-		if (lex == LEX_LITERAL) // �������
+		if (lex == LEX_LITERAL)
 		{
 			bool int_ok = IT::SetValue(itentry, id);
 			if (!int_ok)
 			{
-				// �������� ������������ ������ ��������� ��������
 				Log::writeError(log.stream, Error::GetError(313, line, 0));
 				lex_ok = false;
 			}
 			if (itentry->iddatatype == IT::IDDATATYPE::STR && itentry->value.vstr.len == 0)
 			{
-				// ������ ��������� �������
 				Log::writeError(log.stream, Error::GetError(310, line, 0));
 				lex_ok = false;
 			}
@@ -199,14 +201,13 @@ namespace Lexer
 			}
 			if (itentry->iddatatype == IT::IDDATATYPE::CHAR && itentry->value.vstr.len == 0)
 			{
-				// ������ ��������� �������
 				Log::writeError(log.stream, Error::GetError(310, line, 0));
 				lex_ok = false;
 			}
 			strcpy_s(itentry->id, getNextLiteralName());
 			itentry->idtype = IT::IDTYPE::L;
 		}
-		else // �������������
+		else
 		{
 			switch (type)
 			{
@@ -237,6 +238,36 @@ namespace Lexer
 						itentry->value.params.types[k] = IT::COMPARE_PARAMS[k];
 					break;
 				}
+				case IT::STDFNC::F_SLENGTH:
+				{
+					itentry->idtype = IT::IDTYPE::S;
+					itentry->iddatatype = SLENGTH_TYPE;
+					itentry->value.params.count = SLENGTH_PARAMS_CNT;
+					itentry->value.params.types = new IT::IDDATATYPE[SLENGTH_PARAMS_CNT];
+					for (int k = 0; k < SLENGTH_PARAMS_CNT; k++)
+						itentry->value.params.types[k] = IT::SLENGTH_PARAMS[k];
+					break;
+				}
+				case IT::STDFNC::F_RND:
+				{
+					itentry->idtype = IT::IDTYPE::S;
+					itentry->iddatatype = RND_TYPE;
+					itentry->value.params.count = RND_PARAMS_CNT;
+					itentry->value.params.types = new IT::IDDATATYPE[RND_PARAMS_CNT];
+					for (int k = 0; k < RND_PARAMS_CNT; k++)
+						itentry->value.params.types[k] = IT::RND_PARAMS[k];
+					break;
+				}
+				case IT::STDFNC::F_COPY:
+				{
+					itentry->idtype = IT::IDTYPE::S;
+					itentry->iddatatype = COPY_TYPE;
+					itentry->value.params.count = COPY_PARAMS_CNT;
+					itentry->value.params.types = new IT::IDDATATYPE[COPY_PARAMS_CNT];
+					for (int k = 0; k < COPY_PARAMS_CNT; k++)
+						itentry->value.params.types[k] = IT::COPY_PARAMS[k];
+					break;
+				}
 				case IT::STDFNC::F_NOT_STD:
 					itentry->idtype = IT::IDTYPE::F;
 					break;
@@ -250,29 +281,22 @@ namespace Lexer
 			strncpy_s(itentry->id, id, SCOPED_ID_MAXSIZE);
 		}
 
-		// -------------------------------------------------------
-		int i = tables.lextable.size; // ������ � �� �������� ��
+		int i = tables.lextable.size;
 
-		// Проверка корректности объявления после ключевого слова var:
-		// сразу после LEX_VAR должен идти LEX_ID_TYPE (number/char/line).
 		if (i > 0 && tables.lextable.table[i - 1].lexema == LEX_VAR && lex != LEX_ID_TYPE)
 		{
-			// После var должно идти имя типа (number/char/line)
 			Log::writeError(log.stream, Error::GetError(304, line, 0));
 			lex_ok = false;
 		}
 		if (i > 1 && itentry->idtype == IT::IDTYPE::F && tables.lextable.table[i - 1].lexema != LEX_FUNCTION)
 		{
-			// � ���������� �� ������ ��� �������
 			Log::writeError(log.stream, Error::GetError(303, line, 0));
 			lex_ok = false;
 		}
 		if (itentry->iddatatype == IT::IDDATATYPE::UNDEF)
 		{
-			// Если тип не определён, считаем number по умолчанию, чтобы не ронять разбор
 			itentry->iddatatype = IT::IDDATATYPE::INT;
 		}
-		// --------------------------------------------------------
 		return itentry;
 	}
 
@@ -282,13 +306,11 @@ namespace Lexer
 		tables.lextable = LT::Create(MAXSIZE_LT);
 		tables.idtable = IT::Create(MAXSIZE_TI);
 
-		// Добавляем стандартную функцию compare как библиотечную,
-		// чтобы вызовы compare(...) не считались неизвестным идентификатором.
 		{
 			IT::Entry stdcmp;
 			strcpy_s(stdcmp.id, "compare");
 			stdcmp.idtype = IT::IDTYPE::S;
-			stdcmp.iddatatype = COMPARE_TYPE;           // возвращает number
+			stdcmp.iddatatype = COMPARE_TYPE;
 			stdcmp.value.params.count = COMPARE_PARAMS_CNT;
 			stdcmp.value.params.types = new IT::IDDATATYPE[COMPARE_PARAMS_CNT];
 			for (int k = 0; k < COMPARE_PARAMS_CNT; k++)
@@ -297,11 +319,50 @@ namespace Lexer
 			IT::Add(tables.idtable, stdcmp);
 		}
 
+		{
+			IT::Entry stdlen;
+			strcpy_s(stdlen.id, "slength");
+			stdlen.idtype = IT::IDTYPE::S;
+			stdlen.iddatatype = SLENGTH_TYPE;
+			stdlen.value.params.count = SLENGTH_PARAMS_CNT;
+			stdlen.value.params.types = new IT::IDDATATYPE[SLENGTH_PARAMS_CNT];
+			for (int k = 0; k < SLENGTH_PARAMS_CNT; k++)
+				stdlen.value.params.types[k] = IT::SLENGTH_PARAMS[k];
+			stdlen.idxfirstLE = 0;
+			IT::Add(tables.idtable, stdlen);
+		}
+
+		{
+			IT::Entry stdrnd;
+			strcpy_s(stdrnd.id, "rnd");
+			stdrnd.idtype = IT::IDTYPE::S;
+			stdrnd.iddatatype = RND_TYPE;
+			stdrnd.value.params.count = RND_PARAMS_CNT;
+			stdrnd.value.params.types = new IT::IDDATATYPE[RND_PARAMS_CNT];
+			for (int k = 0; k < RND_PARAMS_CNT; k++)
+				stdrnd.value.params.types[k] = IT::RND_PARAMS[k];
+			stdrnd.idxfirstLE = 0;
+			IT::Add(tables.idtable, stdrnd);
+		}
+
+		{
+			IT::Entry stdcopy;
+			strcpy_s(stdcopy.id, "copystr");
+			stdcopy.idtype = IT::IDTYPE::S;
+			stdcopy.iddatatype = COPY_TYPE;
+			stdcopy.value.params.count = COPY_PARAMS_CNT;
+			stdcopy.value.params.types = new IT::IDDATATYPE[COPY_PARAMS_CNT];
+			for (int k = 0; k < COPY_PARAMS_CNT; k++)
+				stdcopy.value.params.types[k] = IT::COPY_PARAMS[k];
+			stdcopy.idxfirstLE = 0;
+			IT::Add(tables.idtable, stdcopy);
+		}
+
 		bool isParam = false, isFunc = false;
 		int enterPoint = NULL;
 		char curword[STR_MAXSIZE], nextword[STR_MAXSIZE];
 		int curline;
-		std::stack <char*> scopes;			// ���� ��� �������� ����� ������� ������� ���������
+		std::stack <char*> scopes;
 
 		for (int i = 0; i < In::InWord::size; i++)
 		{
@@ -327,7 +388,7 @@ namespace Lexer
 					{
 						switch (*curword)
 						{
-						case LEX_LEFTHESIS:		// ����������� ������ - ���������  �������
+						case LEX_LEFTHESIS:
 						{
 							isParam = true;
 							if (*nextword == LEX_RIGHTTHESIS || ISTYPE(nextword))
@@ -341,16 +402,15 @@ namespace Lexer
 							}
 							break;
 						}
-						case LEX_RIGHTTHESIS:	// ����������� ������
+						case LEX_RIGHTTHESIS:
 						{
 							isParam = false;
-							// ����� ������� ���������
 							if (*in.words[i - 1].word == LEX_LEFTHESIS || (i > 2 && (tables.lextable.table[tables.lextable.size - 2].lexema == LEX_ID_TYPE)))
 								scopes.pop();
 							break;
 
 						}
-						case LEX_LEFTBRACE:		// ������ ������� ���������
+						case LEX_LEFTBRACE:
 						{
 							if (i > 0 && *in.words[i - 1].word == LEX_CYCLE)
 								break;
@@ -361,9 +421,8 @@ namespace Lexer
 							scopes.push(functionname);
 							break;
 						}
-						case LEX_BRACELET:		// ����� ������� ���������
+						case LEX_BRACELET:
 						{
-							// ������ � ���� ������ ��������� ������� ���������
 							if (*in.words[i + 1].word == LEX_ID_TYPE || *in.words[i + 1].word == LEX_VOID || *in.words[i + 1].word == LEX_MAIN)
 							{
 								if (!scopes.empty())
@@ -427,23 +486,23 @@ namespace Lexer
 					case LEX_LITERAL:
 					{
 						char id[STR_MAXSIZE] = "";
-						idxTI = NULLDX_TI;  // ������ �������������� � ��
+						idxTI = NULLDX_TI;
 						if (*nextword == LEX_LEFTHESIS)
-							isFunc = true;						// ������������� �������
-						char* idtype = (isFunc && i > 1) ?	// ��� ��������������
-							in.words[i - 2].word : in.words[i - 1].word;		// ���������� �������� ����� function
+							isFunc = true;
+						char* idtype = (isFunc && i > 1) ?
+							in.words[i - 2].word : in.words[i - 1].word;
 						if (!isFunc && !scopes.empty())
 							strncpy_s(id, scopes.top(), MAXSIZE_ID);
 						strncat(id, curword, MAXSIZE_ID);
 						if (isLiteral(curword))
-							strcpy_s(id, curword); // ������� ���������� ����� ���������
+							strcpy_s(id, curword);
 
 						IT::Entry* itentry = getEntry(tables, lexema, id, idtype, isParam, isFunc, log, curline, lex_ok);
-						if (itentry != nullptr) // ������ ������� - ����������
+						if (itentry != nullptr)
 						{
-							if (isFunc) // ���� ������� - ��������� ������ ����������
+							if (isFunc)
 							{
-								if (getStandFunction(id) == IT::STDFNC::F_NOT_STD) // ����������� ������� ��� ���
+								if (getStandFunction(id) == IT::STDFNC::F_NOT_STD)
 								{
 									itentry->value.params.count = NULL;
 									itentry->value.params.types = new IT::IDDATATYPE[MAX_PARAMS_COUNT];
@@ -467,9 +526,9 @@ namespace Lexer
 							IT::Add(tables.idtable, *itentry);
 							idxTI = tables.idtable.size - 1;
 						}
-						else // ��������� ������������� (��� ����)
+						else
 						{
-							int i = tables.lextable.size - 1; // ������� �������������� �������������
+							int i = tables.lextable.size - 1;
 							if (i > 0 && tables.lextable.table[i - 1].lexema == LEX_VAR || tables.lextable.table[i].lexema == LEX_VAR
 								|| tables.lextable.table[i - 1].lexema == LEX_FUNCTION || tables.lextable.table[i].lexema == LEX_FUNCTION
 								|| tables.lextable.table[i - 1].lexema == LEX_ID_TYPE || tables.lextable.table[i].lexema == LEX_ID_TYPE
@@ -478,9 +537,9 @@ namespace Lexer
 								Log::writeError(log.stream, Error::GetError(305, curline, 0));
 								lex_ok = false;
 							}
-							idxTI = IT::isId(tables.idtable, id);	// ������ ������������� ��������������
+							idxTI = IT::isId(tables.idtable, id);
 							if (lexema == LEX_LITERAL)
-								idxTI = getLiteralIndex(tables.idtable, curword, getType(id, in.words[i - 1].word), log, curline); // ��� ��������
+								idxTI = getLiteralIndex(tables.idtable, curword, getType(id, in.words[i - 1].word), log, curline);
 						}
 					}
 					break;
@@ -490,7 +549,7 @@ namespace Lexer
 					LT::Add(tables.lextable, *ltentry);
 					break;
 				}
-				else if (j == N_GRAPHS - 1) // ������� �� ����������
+				else if (j == N_GRAPHS - 1)
 				{
 					Log::writeError(log.stream, Error::GetError(201, curline, 0));
 					lex_ok = false;
@@ -498,16 +557,16 @@ namespace Lexer
 			}
 		}
 
-		if (enterPoint == NULL) // �� ������� ����� �����
+		if (enterPoint == NULL)
 		{
 			Log::writeError(log.stream, Error::GetError(301));
 			lex_ok = false;
 		}
-		if (enterPoint > 1) //������ 1 ����� �����
+		if (enterPoint > 1)
 		{
 			Log::writeError(log.stream, Error::GetError(302));
 			lex_ok = false;
 		}
 		return lex_ok;
 	}
-};
+}

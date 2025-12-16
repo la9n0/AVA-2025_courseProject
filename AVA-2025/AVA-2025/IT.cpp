@@ -1,5 +1,7 @@
 #include "Header.h"
 #include <iomanip>
+#include <sstream>
+#include "Log.h"
 
 #pragma warning(disable : 4996)
 #define W(x, y)\
@@ -27,7 +29,6 @@ namespace IT
 		idtable.table[idtable.size++] = entry;
 	}
 
-	// âîçâðàò: íîìåð ñòðîêè(åñëè åñòü), TI_NULLIDX(åñëè íåò)
 	int isId(IdTable& idtable, char id[SCOPED_ID_MAXSIZE])
 	{
 		for (int i = 0; i < idtable.size; i++)
@@ -43,7 +44,7 @@ namespace IT
 		return SetValue(&(idtable.table[index]), value);
 	}
 
-	bool SetValue(IT::Entry* entry, char* value) // óñòàíîâêà çíà÷åíèÿ ïåðåìåííîé
+	bool SetValue(IT::Entry* entry, char* value)
 	{
 		bool rc = true;
 		if (entry->iddatatype == INT)
@@ -61,7 +62,7 @@ namespace IT
 		}
 		else
 		{
-			for (unsigned i = 1; i < strlen(value) - 1; i++)	// áåç êàâû÷åê
+			for (unsigned i = 1; i < strlen(value) - 1; i++)
 				entry->value.vstr.str[i - 1] = value[i];
 			entry->value.vstr.str[strlen(value) - 2] = '\0';
 			entry->value.vstr.len = strlen(value) - 2;
@@ -70,8 +71,9 @@ namespace IT
 	}
 	void writeIdTable(std::ostream* stream, IT::IdTable& idtable)
 	{
-		*stream << "---------------------------- ÒÀÁËÈÖÀ ÈÄÅÍÒÈÔÈÊÀÒÎÐÎÂ ------------------------\n" << std::endl;
-		*stream << "|  N  |ÑÒÐÎÊÀ Â ÒË| ÒÈÏ ÈÄÅÍÒÈÔÈÊÀÒÎÐÀ |        ÈÌß        | ÇÍÀ×ÅÍÈÅ (ÏÀÐÀÌÅÒÐÛ)" << std::endl;
+		std::ostringstream oss;
+		oss << "---------------------------- Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð² ------------------------\n" << std::endl;
+		oss << "|  N  |Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð² Ð›Ð¢|  Ð¢Ð¸Ð¿ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð° |        Ð¢Ð¸Ð¿        | Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ (Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹)" << std::endl;
 		for (int i = 0; i < idtable.size; i++)
 		{
 			IT::Entry* e = &idtable.table[i];
@@ -115,39 +117,44 @@ namespace IT
 				break;
 			}
 
-			*stream << STR(i, e->idxfirstLE, type, e->id);
+			oss << STR(i, e->idxfirstLE, type, e->id);
 			if (e->idtype == IT::IDTYPE::L || e->idtype == IT::IDTYPE::V && e->iddatatype != IT::IDDATATYPE::UNDEF)
 			{
 				if (e->iddatatype == IT::IDDATATYPE::INT)
-					*stream << e->value.vint;
+					oss << e->value.vint;
 				else
-					*stream << "[" << (int)e->value.vstr.len << "]" << e->value.vstr.str;
+					oss << "[" << (int)e->value.vstr.len << "]" << e->value.vstr.str;
 			}
 			if (e->idtype == IT::IDTYPE::F || e->idtype == IT::IDTYPE::S)
 			{
 				for (int i = 0; i < e->value.params.count; i++)
 				{
-					*stream << " P" << i << ":";
+					oss << " P" << i << ":";
 					switch (e->value.params.types[i])
 					{
 					case IT::IDDATATYPE::INT:
-						*stream << "number |";
+						oss << "number |";
 						break;
 					case IT::IDDATATYPE::STR:
-						*stream << "line |";
+						oss << "line |";
 						break;
 					case IT::IDDATATYPE::CHAR:
-						*stream << "char |";
+						oss << "char |";
 						break;
 					case IT::IDDATATYPE::PROC:
 					case IT::IDDATATYPE::UNDEF:
-						*stream << "UNDEFINED";
+						oss << "UNDEFINED";
 						break;
 					}
 				}
 			}
-			*stream << std::endl;
+			oss << std::endl;
 		}
-		*stream << "\n-------------------------------------------------------------------------\n\n";
+		oss << "\n-------------------------------------------------------------------------\n\n";
+		std::string str = oss.str();
+		if (stream == &std::cout)
+			Log::printConsoleUtf8(str.c_str());
+		else
+			*stream << str;
 	}
-};
+}

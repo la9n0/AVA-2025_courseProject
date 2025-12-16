@@ -3,15 +3,25 @@
 #define ERROR_MAXSIZE_MESSAGE 512	
 #define ERROR_MAX_ENTRY 1000		
 
+// Диапазоны ошибок по типам
+#define ERROR_LEXICAL_START		200
+#define ERROR_LEXICAL_END		299
+#define ERROR_SYNTAX_START		300
+#define ERROR_SYNTAX_END		399
+#define ERROR_SEMANTIC_START		400
+#define ERROR_SEMANTIC_END		499
+#define ERROR_SYNTAX_GRAMMAR_START	600
+#define ERROR_SYNTAX_GRAMMAR_END	699
+
 #define ERROR_THROW(id) Error::GetError(id);				
 #define ERROR_THROW_IN(id, line, cells) Error::GetError(id, line, cells);	
-#define ERROR_ENTRY(id, message) {id, message}	//������� ������� ������
+#define ERROR_ENTRY(id, message) {id, message}
 
 #ifdef ERROR
 #undef ERROR
 #endif
 
-#define ERROR_ENTRY_NODEF(id)		ERROR_ENTRY(-id, "�������������� ������")
+#define ERROR_ENTRY_NODEF(id)		ERROR_ENTRY(-id, " ")
 
 #define ERROR_ENTRY_NODEF10(id)		ERROR_ENTRY_NODEF(id + 0), ERROR_ENTRY_NODEF(id + 1), \
 									ERROR_ENTRY_NODEF(id + 2), ERROR_ENTRY_NODEF(id + 3), \
@@ -26,18 +36,18 @@
 
 namespace Error
 {
-	struct ERROR								//��� ���������� ��� throw ERROR_THROW | ERROR_THROW_IN � catch(ERROR)
+	struct ERROR
 	{
 		int id;
-		char message[ERROR_MAXSIZE_MESSAGE]; // должен содержать ASCIIZ, используйте строки короче размера
+		char message[ERROR_MAXSIZE_MESSAGE];
 
 		struct IN
 		{
-			short line;							//����� ������ (0, 1, 2, ...)
-			short col;							//����� ������� � ������(0, 1, 2, ...)
+			short line;
+			short col;
 		} position;
 	};
 
-	ERROR GetError(int id);							//������������ ERROR ��� ERROR_THROW
-	ERROR GetError(int id, int line, int cells);	//������������ ERROR ��� ERROR_THROW_IN
+	ERROR GetError(int id);
+	ERROR GetError(int id, int line, int cells);
 }

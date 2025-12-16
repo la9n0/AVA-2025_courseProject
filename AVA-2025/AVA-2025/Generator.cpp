@@ -6,8 +6,11 @@
 #include <sstream>
 #include <cstring>
 #include <iosfwd>
+#include <fstream>
 #include <stack>
 #include <vector>
+#include <locale>
+#include <codecvt>
 
 #ifndef LEX_INC
 #define LEX_INC 'u'
@@ -38,28 +41,35 @@ namespace Gener
 		for (int j = i + 1; LEXEMA(j) != LEX_RIGHTTHESIS; j++)
 		{
 			if (LEXEMA(j) == LEX_ID || LEXEMA(j) == LEX_LITERAL)
-				temp.push(ITENTRY(j)); // // ��������� ���� � ������ �������	
+				temp.push(ITENTRY(j));
 		}
 		str += "\n";
-		// ������������ ����
 		while (!temp.empty())
 		{
-			if (temp.top().idtype == IT::IDTYPE::L && temp.top().iddatatype == IT::IDDATATYPE::STR || temp.top().iddatatype == IT::IDDATATYPE::CHAR)
-				str = str + "push offset " + temp.top().id + "\n";
-			else   str = str + "push " + temp.top().id + "\n";
+			IT::Entry entry = temp.top();
+			if (entry.idtype == IT::IDTYPE::L && (entry.iddatatype == IT::IDDATATYPE::STR || entry.iddatatype == IT::IDDATATYPE::CHAR))
+				str = str + "push offset " + string(entry.id) + "\n";
+			else if (entry.iddatatype == IT::IDDATATYPE::INT)
+			{
+				if (entry.idtype == IT::IDTYPE::L)
+					str = str + "movzx eax, word ptr " + string(entry.id) + "\npush eax\n";
+				else
+					str = str + "movzx eax, word ptr " + string(entry.id) + "\npush eax\n";
+			}
+			else
+				str = str + "push " + string(entry.id) + "\n";
 			temp.pop();
 		}
 		if (stnd)
 			str += "push offset buffer\n";
 		str = str + "call " + string(e.id) + IN_CODE_ENDL;
-		// �����������e �����
 		return str;
 	}
 
 	string genEqualCode(Lexer::LEX& tables, Log::LOG& log, int i)
 	{
 		string str;
-		IT::Entry e1 = ITENTRY(i - 1); // ����� �������
+		IT::Entry e1 = ITENTRY(i - 1);
 		switch (e1.iddatatype)
 		{
 		case IT::IDDATATYPE::INT:
@@ -72,14 +82,21 @@ namespace Gener
 				case LEX_LITERAL:
 				case LEX_ID:
 				{
-					if (ITENTRY(j).idtype == IT::IDTYPE::F || ITENTRY(j).idtype == IT::IDTYPE::S) // ���� � ��������� ����� �������
+					if (ITENTRY(j).idtype == IT::IDTYPE::F || ITENTRY(j).idtype == IT::IDTYPE::S)
 					{
-						str = str + genCallFuncCode(tables, log, j); // ������� ���������� ��������� � eax
-						str = str + "push eax\n";				// ��������� ��������� � ���� ��� ����������� ���������� ���������
+						str = str + genCallFuncCode(tables, log, j);
+						str = str + "push eax\n";
 						while (LEXEMA(j) != LEX_RIGHTTHESIS) j++;
 						break;
 					}
-					else  str = str + "push " + ITENTRY(j).id + "\n";
+					else
+					{
+						IT::Entry entry = ITENTRY(j);
+						if (entry.iddatatype == IT::IDDATATYPE::INT)
+							str = str + "movzx eax, word ptr " + string(entry.id) + "\npush eax\n";
+						else
+							str = str + "push " + string(entry.id) + "\n";
+					}
 					break;
 				}
 				case LEX_PLUS:
@@ -97,44 +114,44 @@ namespace Gener
 				case LEX_LEFT:
 					str = str + "pop ebx \npop eax \nmov cl, bl \nshl eax, cl\npush eax\n"; break;
 				}
-			} // ���� ����������
+			}
 
-			str = str + "\npop ebx\nmov word ptr " + e1.id + ", bx\n";			// ����������� ��������� � bx 
+			str = str + "\npop eax\nmov word ptr " + e1.id + ", ax\n";
 			break;
 		}
-		case IT::IDDATATYPE::STR:// ��������� ����������� ������� ������ ������, �������� � ������ �������
+		case IT::IDDATATYPE::STR:
 		{
 			char lex = LEXEMA(i + 1);
 			IT::Entry e2 = ITENTRY(i + 1);
-			if (lex == LEX_ID && (e2.idtype == IT::IDTYPE::F || e2.idtype == IT::IDTYPE::S)) // ����� �������
+			if (lex == LEX_ID && (e2.idtype == IT::IDTYPE::F || e2.idtype == IT::IDTYPE::S))
 			{
 				str += genCallFuncCode(tables, log, i + 1);
 				str = str + "mov " + e1.id + ", eax";
 			}
-			else if (lex == LEX_LITERAL) // �������
+			else if (lex == LEX_LITERAL)
 			{
 				str = str + "mov " + e1.id + ", offset " + e2.id;
 			}
-			else // ��(����������) - ����� �������
+			else
 			{
 				str = str + "mov ecx, " + e2.id + "\nmov " + e1.id + ", ecx";
 			}
 			break;
 		}
-		case IT::IDDATATYPE::CHAR:// ��������� ����������� ������� ������ ������, �������� � ������ �������
+		case IT::IDDATATYPE::CHAR:
 		{
 			char lex = LEXEMA(i + 1);
 			IT::Entry e2 = ITENTRY(i + 1);
-			if (lex == LEX_ID && (e2.idtype == IT::IDTYPE::F || e2.idtype == IT::IDTYPE::S)) // ����� �������
+			if (lex == LEX_ID && (e2.idtype == IT::IDTYPE::F || e2.idtype == IT::IDTYPE::S))
 			{
 				str += genCallFuncCode(tables, log, i + 1);
 				str = str + "mov " + e1.id + ", eax";
 			}
-			else if (lex == LEX_LITERAL) // �������
+			else if (lex == LEX_LITERAL)
 			{
 				str = str + "mov " + e1.id + ", offset " + e2.id;
 			}
-			else // ��(����������) - ����� �������
+			else
 			{
 				str = str + "mov ecx, " + e2.id + "\nmov " + e1.id + ", ecx";
 			}
@@ -150,27 +167,36 @@ namespace Gener
 		IT::Entry e = ITENTRY(i + 1);
 		IT::IDDATATYPE type = e.iddatatype;
 		str = SEPSTR(funcname) + string(e.id) + string(" PROC,\n\t");
-		//������ ���������
-		int j = i + 3; // ������ - �� ��� ����� ����� ����������� ������
-		while (LEXEMA(j) != LEX_RIGHTTHESIS) // ���� ��������� �� ��������
+		int j = i + 3;
+		while (LEXEMA(j) != LEX_RIGHTTHESIS)
 		{
-			if (LEXEMA(j) == LEX_ID) // ��������
-				str = str + string(ITENTRY(j).id) + (ITENTRY(j).iddatatype == IT::IDDATATYPE::INT ? " : sdword, " : " : dword, ");
+			if (LEXEMA(j) == LEX_ID)
+			{
+				IT::Entry param = ITENTRY(j);
+				if (param.iddatatype == IT::IDDATATYPE::INT)
+					str = str + string(param.id) + " : word, ";
+				else
+					str = str + string(param.id) + " : dword, ";
+			}
 			j++;
 		}
 		int f = str.rfind(',');
 		if (f > 0)
 			str[f] = IN_CODE_SPACE;
-		str += "\n; --- save registers ---\npush ebx\npush edx\n; ----------------------";
+		str += "\n; --- save registers ---\npush ebx\npush edx\npush ecx\n; ----------------------";
 		return str;
 	}
 
 	string genExitCode(Lexer::LEX& tables, int i, string funcname, int pcount)
 	{
-		string str = "; --- restore registers ---\npop edx\npop ebx\n; -------------------------\n";
-		if (LEXEMA(i + 1) != LEX_SEPARATOR)	// ����� �� ������� (������� ��������)
+		string str = "; --- restore registers ---\npop ecx\npop edx\npop ebx\n; -------------------------\n";
+		if (LEXEMA(i + 1) != LEX_SEPARATOR)
 		{
-			str = str + "mov eax, " + string(ITENTRY(i + 1).id) + "\n";
+			IT::Entry entry = ITENTRY(i + 1);
+			if (entry.iddatatype == IT::IDDATATYPE::INT)
+				str = str + "movzx eax, word ptr " + string(entry.id) + "\n";
+			else
+				str = str + "mov eax, " + string(entry.id) + "\n";
 		}
 		str += "ret\n";
 		str += funcname + " ENDP" + SEPSTREMP;
@@ -184,12 +210,12 @@ namespace Gener
 		v.push_back(EXTERN);
 		vector <string> vlt;  vlt.push_back(CONST);
 		vector <string> vid;  vid.push_back(DATA);
-		for (int i = 0; i < tables.idtable.size; i++)// const, data
+		for (int i = 0; i < tables.idtable.size; i++)
 		{
 			IT::Entry e = tables.idtable.table[i];
 			string str = "\t\t" + string(e.id);
 
-			if (tables.idtable.table[i].idtype == IT::IDTYPE::L)	// ������� - � .const
+			if (tables.idtable.table[i].idtype == IT::IDTYPE::L)
 			{
 				switch (e.iddatatype)
 				{
@@ -199,7 +225,7 @@ namespace Gener
 				}
 				vlt.push_back(str);
 			}
-			else if (tables.idtable.table[i].idtype == IT::IDTYPE::V)// ���������� - � .data
+			else if (tables.idtable.table[i].idtype == IT::IDTYPE::V)
 			{
 				switch (e.iddatatype)
 				{
@@ -219,12 +245,13 @@ namespace Gener
 	void CodeGeneration(Lexer::LEX& tables, Parm::PARM& parm, Log::LOG& log)
 	{
 		vector <string> v = startFillVector(tables);
-		ofstream ofile(parm.out);
-		string funcname;	// ��� ������� ������
-		int pcount;			// ���������� ���������� ������� �������
+		ofstream ofile;
+		ofile.open(parm.out, std::ios::out);
+		string funcname;
+		int pcount;
 		string str;
-		std::stack<bool> braceIsLoop; // ���� ���������, ������������� �� � ������
-		std::stack<std::pair<string, string>> loopLabels; // start/end ���� �����
+		std::stack<bool> braceIsLoop;
+		std::stack<std::pair<string, string>> loopLabels;
 		bool pendingLoop = false;
 
 		for (int i = 0; i < tables.lextable.size; i++)
@@ -233,7 +260,9 @@ namespace Gener
 			{
 			case LEX_MAIN:
 			{
-				str = str + SEPSTR("MAIN") + "main PROC";
+				str = str + SEPSTR("MAIN") + "main PROC\n";
+				// Инициализация стека для main
+				str = str + "push ebp\nmov ebp, esp\n";
 				break;
 			}
 			case LEX_FUNCTION:
@@ -248,13 +277,13 @@ namespace Gener
 				str = genExitCode(tables, i, funcname, pcount);
 				break;
 			}
-			case LEX_ID: // ����� �������
+			case LEX_ID:
 			{
-				if (LEXEMA(i + 1) == LEX_LEFTHESIS && LEXEMA(i - 1) != LEX_FUNCTION) // �� ����������, � �����
+				if (LEXEMA(i + 1) == LEX_LEFTHESIS && LEXEMA(i - 1) != LEX_FUNCTION)
 					str = genCallFuncCode(tables, log, i);
 				break;
 			}
-			case LEX_CYCLE: // ��������� ������ � ��������� ���������� ���������
+			case LEX_CYCLE:
 			{
 				conditionnum++;
 				string start = "cycle" + itoS(conditionnum);
@@ -263,10 +292,10 @@ namespace Gener
 				pendingLoop = true;
 				IT::Entry cnt = ITENTRY(i + 1);
 				string src = cnt.idtype == IT::IDTYPE::L ? ("word ptr " + string(cnt.id)) : string(cnt.id);
-				str = "mov cx, " + src + "\ncmp cx, 0\njz " + finish + "\n" + start + ":\n";
+				str = "movzx ecx, " + src + "\ncmp ecx, 0\njz " + finish + "\n" + start + ":\n";
 				break;
 			}
-			case LEX_BRACELET:	// ������� �� ����� � ����� ��������
+			case LEX_BRACELET:
 			{
 				bool isLoopBrace = false;
 				if (!braceIsLoop.empty())
@@ -277,36 +306,60 @@ namespace Gener
 				if (isLoopBrace && !loopLabels.empty())
 				{
 					auto lb = loopLabels.top(); loopLabels.pop();
-					str = str + "loop " + lb.first + "\n" + lb.second + ":\n";
+					str = str + "dec ecx\ncmp ecx, 0\njnz " + lb.first + "\n" + lb.second + ":\n";
+					pendingLoop = false;
 				}
 				break;
 			}
-			case LEX_EQUAL: // ������������ (���������� ���������)
+			case LEX_EQUAL:
 			{
 				str = genEqualCode(tables, log, i);
-				while (LEXEMA(++i) != LEX_SEPARATOR);	// ���������� ���������
+				while (LEXEMA(++i) != LEX_SEPARATOR);
 				break;
 			}
-			case LEX_NEWLINE: // ������� ������ 
+			case LEX_NEWLINE:
 			{
-				str = str + "push offset newline\ncall outrad\n";
+				if (pendingLoop || !loopLabels.empty())
+					str = str + "mov saveecx, ecx\npush offset newline\ncall outrad\nmov ecx, saveecx\n";
+				else
+					str = str + "push offset newline\ncall outrad\n";
 				break;
 			}
-			case LEX_WRITE: // �����
+			case LEX_WRITE:
 			{
 				IT::Entry e = ITENTRY(i + 1);
+				bool inLoop = (pendingLoop || !loopLabels.empty());
 				switch (e.iddatatype)
 				{
 				case IT::IDDATATYPE::INT:
-					str = str + "\npush " + e.id + "\ncall outlich\n";
+					if (inLoop)
+						str = str + "mov saveecx, ecx\nmovzx eax, word ptr " + string(e.id) + "\npush eax\ncall outlich\nmov ecx, saveecx\n";
+					else
+						str = str + "\nmovzx eax, word ptr " + string(e.id) + "\npush eax\ncall outlich\n";
 					break;
 				case IT::IDDATATYPE::STR:
-					if (e.idtype == IT::IDTYPE::L)  str = str + "\npush offset " + e.id + "\ncall outrad\n";
-					else  str = str + "\npush " + e.id + "\ncall outrad\n";
+					if (inLoop)
+					{
+						if (e.idtype == IT::IDTYPE::L)  str = str + "mov saveecx, ecx\npush offset " + e.id + "\ncall outrad\nmov ecx, saveecx\n";
+						else  str = str + "mov saveecx, ecx\npush " + e.id + "\ncall outrad\nmov ecx, saveecx\n";
+					}
+					else
+					{
+						if (e.idtype == IT::IDTYPE::L)  str = str + "\npush offset " + e.id + "\ncall outrad\n";
+						else  str = str + "\npush " + e.id + "\ncall outrad\n";
+					}
 					break;
 				case IT::IDDATATYPE::CHAR:
-					if (e.idtype == IT::IDTYPE::L)  str = str + "\npush offset " + e.id + "\ncall outrad\n";
-					else  str = str + "\npush " + e.id + "\ncall outrad\n";
+					if (inLoop)
+					{
+						if (e.idtype == IT::IDTYPE::L)  str = str + "mov saveecx, ecx\npush offset " + e.id + "\ncall outrad\nmov ecx, saveecx\n";
+						else  str = str + "mov saveecx, ecx\npush " + e.id + "\ncall outrad\nmov ecx, saveecx\n";
+					}
+					else
+					{
+						if (e.idtype == IT::IDTYPE::L)  str = str + "\npush offset " + e.id + "\ncall outrad\n";
+						else  str = str + "\npush " + e.id + "\ncall outrad\n";
+					}
 					break;
 				}
 				break;
@@ -326,13 +379,12 @@ namespace Gener
 			case LEX_INV:
 			{
 				IT::Entry e = ITENTRY(i + 1);
-				str = str + "not word ptr " + string(e.id) + "\n";
+				str = str + "neg word ptr " + string(e.id) + "\n";
 				break;
 			}
 			case LEX_LEFTBRACE:
 			{
 				braceIsLoop.push(pendingLoop);
-				pendingLoop = false;
 				break;
 			}
 			}
@@ -341,9 +393,9 @@ namespace Gener
 			str.clear();
 		}
 		v.push_back(END);
-		// ����� � ����
 		for (auto x : v)
 			ofile << x << endl;
+		ofile.flush();
 		ofile.close();
 	}
-};
+}

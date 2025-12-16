@@ -31,6 +31,8 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -38,12 +40,16 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -51,6 +57,8 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -81,12 +89,17 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\StaticLibrary\Debug\StaticLibrary.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\StaticLibrary\Debug</AdditionalLibraryDirectories>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalDependencies>$(SolutionDir)Debug\StaticLibrary.lib;msvcrt.lib;msvcmrt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Debug</AdditionalLibraryDirectories>
     </Link>
     <MASM>
       <AssembledCodeListingFile>$(IntDir)</AssembledCodeListingFile>
     </MASM>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)out.asm" (if exist "$(SolutionDir)out.asm" copy /Y "$(SolutionDir)out.asm" "$(ProjectDir)out.asm")</Command>
+      <Message>Проверка наличия out.asm в проекте Assembler</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -102,7 +115,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalDependencies>$(SolutionDir)$(Configuration)\StaticLibrary.lib;msvcrt.lib;msvcmrt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)out.asm" (if exist "$(SolutionDir)out.asm" copy /Y "$(SolutionDir)out.asm" "$(ProjectDir)out.asm")</Command>
+      <Message>Проверка наличия out.asm в проекте Assembler</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -114,7 +134,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\StaticLibrary.lib;msvcrt.lib;msvcmrt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)out.asm" (if exist "$(SolutionDir)out.asm" copy /Y "$(SolutionDir)out.asm" "$(ProjectDir)out.asm")</Command>
+      <Message>Проверка наличия out.asm в проекте Assembler</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -130,8 +157,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\StaticLibrary.lib;msvcrt.lib;msvcmrt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)out.asm" (if exist "$(SolutionDir)out.asm" copy /Y "$(SolutionDir)out.asm" "$(ProjectDir)out.asm")</Command>
+      <Message>Проверка наличия out.asm в проекте Assembler</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaticLibrary\StaticLibrary.vcxproj">
+      <Project>{d178aaa3-1628-4fdd-9bfa-04396d4eec1d}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <MASM Include="out.asm">
       <FileType>Document</FileType>

@@ -1,7 +1,3 @@
 ﻿  StaticLibrary.cpp
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\StaticLibrary\StaticLibrary.cpp(92,17): warning C4297: poww: ожидается, что функция не будет выдавать исключения, но она это делает
-      D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\StaticLibrary\StaticLibrary.cpp(92,17):
-      Функция типа extern "C", указан параметр /EHc
-  
-D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\StaticLibrary\StaticLibrary.cpp(101,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\StaticLibrary\StaticLibrary.cpp(56,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   StaticLibrary.vcxproj -> D:\university\3_sem\kpo\courseProject\AVA-2025\AVA-2025\Debug\StaticLibrary.lib

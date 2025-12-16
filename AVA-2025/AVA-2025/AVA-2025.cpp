@@ -25,18 +25,18 @@ int wmain(int argc, wchar_t* argv[])
 
 	try
 	{
-		Parm::PARM parm = Parm::getparm(argc, argv);                            //�������� ���������
+		Parm::PARM parm = Parm::getparm(argc, argv);
 		log = Log::getstream(parm.log);
-		Log::writeLog(log);														//�������� ��������� �������
-		Log::writeParm(log, parm);												//�������� � ������ ���������
+		Log::writeLog(log);
+		Log::writeParm(log, parm);
 		In::IN in = In::getin(parm.in, log.stream);
 		Log::writeIn(log.stream, in);
 
-		in.words = In::getWordsTable(log.stream, in.text, in.code, in.size);	//��������� �� ������
+		in.words = In::getWordsTable(log.stream, in.text, in.code, in.size);
 		Lexer::LEX tables;
-		bool lex_ok = Lexer::analyze(tables, in, log, parm);					//��������� ����������� ������
-		LT::writeLexTable(log.stream, tables.lextable);							//�������� � ������ ������� ������ � ��������������� 
-		IT::writeIdTable(log.stream, tables.idtable);							//� ����� ������������ ������� � ������
+		bool lex_ok = Lexer::analyze(tables, in, log, parm);
+		LT::writeLexTable(log.stream, tables.lextable);
+		IT::writeIdTable(log.stream, tables.idtable);
 		LT::writeLexemsOnLines(log.stream, tables.lextable);
 		if (!lex_ok)
 		{
@@ -49,10 +49,10 @@ int wmain(int argc, wchar_t* argv[])
 			Log::writeLine(&std::cout, LEXGOOD, "");
 		}
 		MFST_TRACE_START(log.stream);
-		MFST::Mfst mfst(tables, GRB::getGreibach());							//��������� �������������� ������
+		MFST::Mfst mfst(tables, GRB::getGreibach());
 		bool synt_ok = mfst.start(log);
 		mfst.savededucation();
-		mfst.printrules(log);													//������� ������ �������
+		mfst.printrules(log);
 		if (!synt_ok)
 		{
 			Log::writeLine(log.stream, SYNTERROR, "");
@@ -60,7 +60,7 @@ int wmain(int argc, wchar_t* argv[])
 			return 0;
 		}
 		else Log::writeLine(&std::cout, SYNTGOOD, "");
-		bool sem_ok = Semantic::semanticsCheck(tables, log);					//��������� ������������� ������
+		bool sem_ok = Semantic::semanticsCheck(tables, log);
 		if (!sem_ok)
 		{
 			Log::writeLine(log.stream, SEMERROR, "");
@@ -68,7 +68,7 @@ int wmain(int argc, wchar_t* argv[])
 			return 0;
 		}
 		else Log::writeLine(&std::cout, SEMGOOD, "");
-		bool polish_ok = Polish::PolishNotation(tables, log);					//��������� �������������� ��������� � �����
+		bool polish_ok = Polish::PolishNotation(tables, log);
 		if (!polish_ok)
 		{
 			Log::writeLine(log.stream, POLISHERROR, "");
@@ -77,11 +77,11 @@ int wmain(int argc, wchar_t* argv[])
 		}
 		else Log::writeLine(&std::cout, POLISHGOOD, "");
 		Log::writeLine(log.stream, MESSAGE, "");
-		LT::writeLexTable(log.stream, tables.lextable);							//�������� � ������ ����� ������� ������ � ���������������
+		LT::writeLexTable(log.stream, tables.lextable);
 		IT::writeIdTable(log.stream, tables.idtable);
-		LT::writeLexemsOnLines(log.stream, tables.lextable);					//� ����� ������������ ������� � ������
+		LT::writeLexemsOnLines(log.stream, tables.lextable);
 
-		Gener::CodeGeneration(tables, parm, log);								//��������� ��������� ����
+		Gener::CodeGeneration(tables, parm, log);
 	}
 	catch (Error::ERROR e)
 	{
@@ -95,4 +95,3 @@ int wmain(int argc, wchar_t* argv[])
 	}
 	return 0;
 }
-

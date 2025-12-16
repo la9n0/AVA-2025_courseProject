@@ -9,11 +9,8 @@
 #define TYPE_STRING		"line"
 #define TYPE_CHAR		"char"
 #define TYPE_VOID		"proc"
-#define CONCAT			"concat"
-#define POW				"poww"
 #define COMPARE			"compare"
 #define RANDOM			"rnd"
-#define ATOII			"atoii"
 #define MAIN			"main"
 #define LENGHT			"slength"
 #define COPY			"copystr"
@@ -35,30 +32,29 @@ namespace Lexer
 		FST::FST graph;
 	};
 
-	IT::Entry* getEntry		// формирует и возвращает строку ТИ
+	IT::Entry* getEntry
 	(
-		Lexer::LEX& tables,						// ТЛ + ТИ
-		char lex,								// лексема
-		char* id,								// идентификатор
-		char* idtype,							// предыдущая (тип)
-		bool isParam,							// признак параметра функции
-		bool isFunc,							// признак функции
-		Log::LOG log,							// протокол
-		int line,								// строка в исходном тексте
-		bool& rc_err							// флаг ошибки(по ссылке)
+		Lexer::LEX& tables,
+		char lex,
+		char* id,
+		char* idtype,
+		bool isParam,
+		bool isFunc,
+		Log::LOG log,
+		int line,
+		bool& rc_err
 	);
 
-	struct ERROR_S									// тип исключения для throw ERROR_THROW | ERROR_THROW_IN
+	struct ERROR_S
 	{
 		int id;
-		char message[ERROR_MAXSIZE_MESSAGE];			// сообщение			
+		char message[ERROR_MAXSIZE_MESSAGE];
 		struct
 		{
-			short line = -1;						//номер строки (0, 1, 2, ...)
-			short col = -1;						//номер позиции в строке(0, 1, 2, ...)
+			short line = -1;
+			short col = -1;
 		} position;
 	};
 	bool analyze(LEX& tables, In::IN& in, Log::LOG& log, Parm::PARM& parm);
-	int	getIndexInLT(LT::LexTable& lextable, int itTableIndex);					// индекс первой встречи в таблице лексем
-};
-
+	int	getIndexInLT(LT::LexTable& lextable, int itTableIndex);
+}

@@ -1,11 +1,41 @@
-number function powloop(number start)
+number function factorial(number n)
+[
+    var number result;
+    result = 1;
+    cycle n [
+        result = result * n;
+        dec n;
+    ]
+    return result;
+]
+
+number function power(number base, number exp)
 [
     var number res;
-    res = start;
-    cycle 5 [
-        res = res * res;
+    res = 1;
+    cycle exp [
+        res = res * base;
+        dec exp;
     ]
     return res;
+]
+
+number function calculate(number a, number b)
+[
+    var number sum;
+    var number diff;
+    var number prod;
+    var number quot;
+    var number mod;
+    var number result;
+    sum = a + b;
+    diff = a - b;
+    prod = a * b;
+    quot = a / b;
+    mod = a % b;
+    
+    result = sum + diff + prod + quot + mod;
+    return result;
 ]
 
 main
@@ -13,28 +43,94 @@ main
     var number x;
     var number y;
     var number z;
-    var char c;
-    var line sone;
-    var line stwo;
-    var number acc;
-
-    x = 5;
-    y = 0x0003;
-    z = -2;
-    c = 'b';
-    sone = "hello";
-    stwo = "world";
-
+    var number result;
+    var char ch;
+    var line firststr;
+    var line secondstr;
+    var line thirdstr;
+    var number len;
+    var number cmp;
+    var number random;
+    
+    x = 10;
+    y = 5;
+    z = -3;
+    ch = 'A';
+    firststr = "Hello";
+    secondstr = "World";
+    thirdstr = "Test";
+    
+    print "Initial values:"; writeline;
+    print "x="; print x; writeline;
+    print "y="; print y; writeline;
+    print "z="; print z; writeline;
+    print "ch="; print ch; writeline;
+    print "firststr="; print firststr; writeline;
+    print "secondstr="; print secondstr; writeline;
+    
     inc x;
     dec y;
     inv z;
-    acc = 0;
-
+    
+    writeline; print "Checking unary operations:"; writeline;
+    print "After inc x: x="; print x; writeline;
+    print "After dec y: y="; print y; writeline;
+    print "After inv z: z="; print z; writeline;
+    
+    writeline; print "Arithmetic operations:"; writeline;
     z = x + y;
-    print z; writeline;
-
-    var number pwr;
-    pwr = powloop(2);
-    print pwr; writeline;
+    print "z=x+y: z="; print z; writeline;
+    
+    z = x - y;
+    print "z=x-y: z="; print z; writeline;
+    
+    z = x * y;
+    print "z=x*y: z="; print z; writeline;
+    
+    z = x / y;
+    print "z=x/y: z="; print z; writeline;
+    
+    z = x % y;
+    print "z=x%y: z="; print z; writeline;
+    
+    z = x + y * 2;
+    print "z=x+y*2: z="; print z; writeline;
+    
+    z = (x + y) * 2;
+    print "z=(x+y)*2: z="; print z; writeline;
+    
+    writeline; print "Results of the functions:"; writeline;
+    result = factorial(5);
+    print "factorial(5)="; print result; writeline;
+    
+    result = power(2, 8);
+    print "power(2,8)="; print result; writeline;
+    
+    result = calculate(20, 4);
+    print "calculate(20,4)="; print result; writeline;
+    
+    writeline; print "Static library output:"; writeline;
+    len = slength(firststr);
+    print "slength(firststr)="; print len; writeline;
+    
+    cmp = compare(firststr, secondstr);
+    print "compare(firststr,secondstr)="; print cmp; writeline;
+    
+    random = rnd(1, 100);
+    print "rnd(1,100)="; print random; writeline;
+    
+    thirdstr = copystr(firststr);
+    print "copystr(firststr)="; print thirdstr; writeline;
+    
+    writeline; print "Result of the work of cycles:"; writeline;
+    cycle 3 [
+        inc x;
+        print "x="; print x; writeline;
+    ]
+    
+    x = 5;
+    cycle x [
+        dec x;
+        print "x="; print x; writeline;
+    ]
 ]
-

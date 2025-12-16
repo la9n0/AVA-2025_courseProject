@@ -9,10 +9,10 @@ typedef short GRBALPHABET;
 #define ISNS(n) GRB::Rule::Chain::isN(n)
 
 
-#define MFST_TRACE_START(LOG) *log.stream << std::setw( 4)<<std::left<<"Шаг"<<":" \
-	<< std::setw(20) << std::left << "Правило"  \
-	<< std::setw(30) << std::left << "Входная лента" \
-	<< std::setw(20) << std::left << "Стек" \
+#define MFST_TRACE_START(LOG) *log.stream << std::setw( 4)<<std::left<<" "<<":" \
+	<< std::setw(20) << std::left << " "  \
+	<< std::setw(30) << std::left << " " \
+	<< std::setw(20) << std::left << " " \
 	<< std::endl;
 
 #define MFST_TRACE1(LOG) *log.stream <<std::setw( 4)<<std::left<<++FST_TRACE_n<<":" \
@@ -45,65 +45,65 @@ typedef short GRBALPHABET;
 
 namespace GRB
 {
-	struct Rule	//правило в грамматике Грейбах
+	struct Rule
 	{
-		GRBALPHABET  nn;	//нетерминал(левый символ правила) <0
-		int iderror;		//идентификатор диагностического сообщения
-		short size;			//количество цепочек - правых частей правила
+		GRBALPHABET  nn;
+		int iderror;
+		short size;
 
-		struct Chain		//цепочка(правая часть правила)
+		struct Chain
 		{
-			short size;						//длина цепочки
-			GRBALPHABET* nt;					//цепочка терминалов(>0 и нетерминалов (<0)
+			short size;
+			GRBALPHABET* nt;
 			Chain() { size = 0; nt = 0; };
 			Chain(
-				short psize,				//количество символов в цепочке
-				GRBALPHABET s, ...			//символы (терминал или нетерминал)
+				short psize,
+				GRBALPHABET s, ...
 			);
-			char* getCChain(char* b);		//получить правую сторону правила
-			static GRBALPHABET T(char t) { return GRBALPHABET(t); };//терминал
-			static GRBALPHABET N(char n) { return -GRBALPHABET(n); };//нетерминал
-			static bool isT(GRBALPHABET s) { return s > 0; }			//терминал?
-			static bool isN(GRBALPHABET s) { return !isT(s); }		//нетерминал?
-			static char alphabet_to_char(GRBALPHABET s) { return isT(s) ? char(s) : char(-s); };//GRBALPHABET->char
-		}*chains;	//массив цепочек - правых частей правила
+			char* getCChain(char* b);
+			static GRBALPHABET T(char t) { return GRBALPHABET(t); };
+			static GRBALPHABET N(char n) { return -GRBALPHABET(n); };
+			static bool isT(GRBALPHABET s) { return s > 0; }
+			static bool isN(GRBALPHABET s) { return !isT(s); }
+			static char alphabet_to_char(GRBALPHABET s) { return isT(s) ? char(s) : char(-s); };
+		}*chains;
 
 		Rule() { nn = 0x00; size = 0; }
 		Rule(
-			GRBALPHABET pnn,			//нетерминал (<0)
-			int iderror,				//идентификатор диагностического сообщения
-			short psize,				//количество цепочек - правых частей правила
-			Chain c, ...				//множество цепочек - правых частей правила
+			GRBALPHABET pnn,
+			int iderror,
+			short psize,
+			Chain c, ...
 		);
-		char* getCRule(				//получить правило в виде N->цепочка(для распечатки)
-			char* b,					//буфер
-			short nchain			//номер цепочки(правой части) в правиле
+		char* getCRule(
+			char* b,
+			short nchain
 		);
-		short getNextChain(	//получить следующую за j подходящую цепочку, вернуть её номер или -1
-			GRBALPHABET t,			//первый символ цепочки
-			Rule::Chain& pchain,	//возвращаемая цепочка
-			short j					//номер цепочки
+		short getNextChain(
+			GRBALPHABET t,
+			Rule::Chain& pchain,
+			short j
 		);
 	};
 
-	struct Greibach			//грамматика Грейбах
+	struct Greibach
 	{
-		short size;			//количество правил
-		GRBALPHABET startN;	//стартовый символ
-		GRBALPHABET stbottomT;//дно стека
-		Rule* rules;			//множество правил
+		short size;
+		GRBALPHABET startN;
+		GRBALPHABET stbottomT;
+		Rule* rules;
 		Greibach() { short size = 0; startN = 0; stbottomT = 0; rules = 0; };
 		Greibach(
-			GRBALPHABET pstartN,		//стартовый символ
-			GRBALPHABET pstbootomT,		//дно стека
-			short psize,				//количество правил
-			Rule r, ...					//правила
+			GRBALPHABET pstartN,
+			GRBALPHABET pstbootomT,
+			short psize,
+			Rule r, ...
 		);
-		short getRule(		//получить правило, возвращается номер правила или -1
-			GRBALPHABET pnn,	//левый символ правила
-			Rule& prule			//возвращаемое правило грамматики
+		short getRule(
+			GRBALPHABET pnn,
+			Rule& prule
 		);
-		Rule getRule(short n);	//получить правило по номеру
+		Rule getRule(short n);
 	};
-	Greibach getGreibach();		//получить грамматику
-};
+	Greibach getGreibach();
+}

@@ -4,4 +4,4 @@
 namespace Semantic
 {
 	bool semanticsCheck(Lexer::LEX& tables, Log::LOG& log);
-};
+}

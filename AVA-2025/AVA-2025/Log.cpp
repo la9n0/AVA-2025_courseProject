@@ -29,13 +29,12 @@
 
 namespace Log
 {
-	// Всюду считаем строки в UTF-8, в консоль переводим в UTF-16 и пишем через WriteConsoleW
 	std::wstring utf8ToWide(const char* text)
 	{
 		if (!text) return std::wstring();
 		int wlen = MultiByteToWideChar(CP_UTF8, 0, text, -1, NULL, 0);
 		if (wlen <= 0) return std::wstring();
-		std::wstring wstr(wlen - 1, L'\0'); // без завершающего нуля
+		std::wstring wstr(wlen - 1, L'\0');
 		MultiByteToWideChar(CP_UTF8, 0, text, -1, &wstr[0], wlen);
 		return wstr;
 	}
@@ -48,7 +47,7 @@ namespace Log
 		std::vector<char> buf(len, '\0');
 		int written = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, buf.data(), len, nullptr, nullptr);
 		if (written <= 0) return std::string();
-		return std::string(buf.data()); // buf содержит ASCIIZ
+		return std::string(buf.data());
 	}
 
 	void printConsoleUtf8(const char* text)
@@ -67,8 +66,7 @@ namespace Log
 		stream.stream = new std::ofstream;
 		stream.stream->open(logfile, std::ios::binary);
 		if (!stream.stream->is_open())
-			throw ERROR_THROW(103); // ошибка при открытии файла протокола
-		// BOM UTF-8, чтобы лог открывался корректно
+			throw ERROR_THROW(103);
 		const unsigned char bom[] = { 0xEF, 0xBB, 0xBF };
 		stream.stream->write(reinterpret_cast<const char*>(bom), sizeof(bom));
 		wcscpy_s(stream.logfile, logfile);
@@ -90,7 +88,7 @@ namespace Log
 			*log.stream << oss.str();
 	}
 
-	void writeLine(std::ostream* stream, char* c, ...)		// вывод произвольной строки
+	void writeLine(std::ostream* stream, char* c, ...)
 	{
 		std::ostringstream oss;
 		char** ptr = &c;
@@ -166,20 +164,17 @@ namespace Log
 		std::string msg = oss.str();
 		if (stream == NULL)
 		{
-			// stderr
 			printConsoleUtf8(msg.c_str());
 			printConsoleUtf8("\n");
 			system("pause");
 		}
 		else if (stream == &std::cout)
 		{
-			// stdout через UTF-8
 			printConsoleUtf8(msg.c_str());
 			printConsoleUtf8("\n");
 		}
 		else
 		{
-			// в файл лог пишем UTF-8
 			*stream << std::endl << msg << std::endl;
 		}
 		throw ERROR_THROW_IN(e.id, e.position.line, e.position.col);

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include "LT.h"
 #include "Error.h"
+#include "Log.h"
 
 
 namespace LT
@@ -39,35 +41,47 @@ namespace LT
 
 	void writeLexTable(std::ostream* stream, LT::LexTable& lextable)
 	{
-		*stream << "------------------------------ ÒÀÁËÈÖÀ ËÅÊÑÅÌ  ------------------------\n" << std::endl;
-		*stream << "|  N | ËÅÊÑÅÌÀ | ÑÒÐÎÊÀ | ÈÍÄÅÊÑ Â ÒÈ |" << std::endl;
+		std::ostringstream oss;
+		oss << "------------------------------ Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Ð»ÐµÐºÑÐµÐ¼ ------------------------\n" << std::endl;
+		oss << "|  N | Ð›ÐµÐºÑÐµÐ¼Ð° | Ð¡Ñ‚Ñ€Ð¾ÐºÐ° | Ð˜Ð½Ð´ÐµÐºÑ Ð² Ð¢Ð˜ |" << std::endl;
 		for (int i = 0; i < lextable.size; i++)
 		{
-			*stream << "|" << std::setw(3) << i << " | " << std::setw(4) << lextable.table[i].lexema << "    |  " << std::setw(3)
+			oss << "|" << std::setw(3) << i << " | " << std::setw(4) << lextable.table[i].lexema << "    |  " << std::setw(3)
 				<< lextable.table[i].sn << "   |";
 			if (lextable.table[i].idxTI == -1)
-				*stream << "             |" << std::endl;
+				oss << "             |" << std::endl;
 			else
-				*stream << std::setw(8) << lextable.table[i].idxTI << "     |" << std::endl;
+				oss << std::setw(8) << lextable.table[i].idxTI << "     |" << std::endl;
 		}
+		std::string str = oss.str();
+		if (stream == &std::cout)
+			Log::printConsoleUtf8(str.c_str());
+		else
+			*stream << str;
 	}
 
 	void writeLexemsOnLines(std::ostream* stream, LT::LexTable& lextable)
 	{
-		*stream << "\n-----------------  ËÅÊÑÅÌÛ ÑÎÎÒÂÅÒÑÒÂÓÞÙÈÅ ÈÑÕÎÄÍÎÌÓ ÊÎÄÓ ---------------------\n" << std::endl;
+		std::ostringstream oss;
+		oss << "\n-----------------  Ð›ÐµÐºÑÐµÐ¼Ñ‹ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð² Ð¿Ð¾ ÑÑ‚Ñ€Ð¾ÐºÐ°Ð¼ ---------------------\n" << std::endl;
 		for (int i = 0; i < lextable.size; )
 		{
 			int line = lextable.table[i].sn;
-			*stream << std::setw(3) << line << " | ";
+			oss << std::setw(3) << line << " | ";
 			while (lextable.table[i].sn == line)
 			{
-				*stream << lextable.table[i].lexema;
+				oss << lextable.table[i].lexema;
 				if (lextable.table[i].idxTI != NULLDX_TI)
-					*stream << "[" << lextable.table[i].idxTI << "]";
+					oss << "[" << lextable.table[i].idxTI << "]";
 				i++;
 			}
-			*stream << std::endl;
+			oss << std::endl;
 		}
-		*stream << "-------------------------------------------------------------------------\n\n";
+		oss << "-------------------------------------------------------------------------\n\n";
+		std::string str = oss.str();
+		if (stream == &std::cout)
+			Log::printConsoleUtf8(str.c_str());
+		else
+			*stream << str;
 	}
 }
